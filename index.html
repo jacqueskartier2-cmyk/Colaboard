@@ -4,160 +4,134 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Colaboard</title>
+<title>Colaboard — Creator Economy Platform</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=Nunito:wght@800;900&display=swap" rel="stylesheet"/>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'DM Sans',sans-serif;background:#fff;color:#0A0A0A}
-.hidden{display:none!important}
-button,input,textarea{font-family:'DM Sans',sans-serif}
-button{cursor:pointer}
-.nav{background:#fff;border-bottom:1px solid #DDE1EE;padding:0 5%;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200}
+button,input,textarea{font-family:'DM Sans',sans-serif;cursor:pointer}
+.nav{background:#fff;border-bottom:1px solid #DDE1EE;padding:0 5%;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
 .logo{font-family:'Nunito',sans-serif;font-size:24px;font-weight:900;color:#0A0A0A}
 .logo b{color:#0063FF}
-.btn{border:none;border-radius:9px;font-weight:600;font-size:14px;padding:10px 20px;cursor:pointer;display:inline-block}
-.bp{background:#0063FF;color:#fff}
-.bo{background:#fff;color:#0A0A0A;border:1.5px solid #DDE1EE}
-.bg{background:#00B37E;color:#fff}
-.bpu{background:#7C3AED;color:#fff}
-.bdk{background:#111;color:#fff}
+.bp{background:#0063FF;color:#fff;border:none;border-radius:9px;padding:10px 20px;font-weight:700;font-size:14px}
+.bo{background:#fff;color:#0A0A0A;border:1.5px solid #DDE1EE;border-radius:9px;padding:10px 20px;font-weight:600;font-size:14px}
+.bg{background:#00B37E;color:#fff;border:none;border-radius:9px;padding:10px 20px;font-weight:700;font-size:14px}
+.bpu{background:#7C3AED;color:#fff;border:none;border-radius:9px;padding:10px 20px;font-weight:700;font-size:14px}
 .blg{padding:14px 28px;font-size:15px;border-radius:12px}
 .bsm{padding:6px 13px;font-size:12px;border-radius:8px}
 .card{background:#fff;border-radius:14px;border:1px solid #DDE1EE;padding:20px}
-.badge{display:inline-flex;align-items:center;padding:2px 9px;border-radius:20px;font-size:11px;font-weight:600;background:#EEF0F8;color:#5C6480}
+.bdg{display:inline-flex;align-items:center;padding:2px 9px;border-radius:20px;font-size:11px;font-weight:600;background:#EEF0F8;color:#5C6480}
 .inp{width:100%;padding:11px 14px;border-radius:10px;font-size:14px;border:1px solid #DDE1EE;outline:none;background:#fff;color:#0A0A0A}
-.lbl{font-size:11px;font-weight:700;color:#5C6480;letter-spacing:.6px;text-transform:uppercase;margin-bottom:5px}
-.overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:500;display:flex;align-items:center;justify-content:center;padding:20px}
-.mbox{background:#fff;border-radius:20px;padding:36px;width:100%;max-width:420px}
-.gc{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px}
-.g2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:20px}
-.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:22px}
-.sb{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:9px;border:none;background:transparent;color:#5C6480;font-size:13px;font-weight:500;text-align:left;width:100%;cursor:pointer;margin-bottom:2px}
+.sb{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:9px;border:none;background:transparent;color:#5C6480;font-size:13px;font-weight:500;text-align:left;width:100%;margin-bottom:2px}
 .sb.on{background:#E8F0FF;color:#0063FF;font-weight:700}
 .stat{background:#fff;border-radius:12px;border:1px solid #DDE1EE;padding:16px 20px;display:flex;align-items:center;gap:14px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:22px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:20px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.gc{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
 </style>
 </head>
 <body>
 
-<!-- LANDING -->
+<!-- PAGE: LANDING -->
 
-<div id="landing">
+<div id="page-landing">
 <nav class="nav">
   <div class="logo">Cola<b>board</b></div>
   <div style="display:flex;gap:10px">
-    <button class="btn bo" onclick="openModal('creator')">Log in</button>
-    <button class="btn bp" onclick="openModal('brand')">Post a Campaign</button>
+    <button class="bo" onclick="goApp('creator')">Log in</button>
+    <button class="bp" onclick="goApp('brand')">Post a Campaign</button>
   </div>
 </nav>
 <section style="background:linear-gradient(160deg,#F0F5FF,#fff);padding:72px 5% 60px;text-align:center">
   <div style="display:inline-flex;align-items:center;gap:7px;background:#E8F0FF;border-radius:20px;padding:5px 14px;margin-bottom:22px;font-size:12px;font-weight:700;color:#0063FF">⚡ COLABOARD CAPITAL — GET PAID IN 72H</div>
-  <h1 style="font-family:'Nunito',sans-serif;font-size:clamp(32px,6vw,60px);font-weight:900;line-height:1.1;margin:0 auto 20px;max-width:800px">Where Brands Meet<br/><span style="color:#0063FF">the Right Creators.</span></h1>
+  <h1 style="font-family:'Nunito',sans-serif;font-size:clamp(32px,6vw,58px);font-weight:900;line-height:1.1;margin:0 auto 20px;max-width:800px">Where Brands Meet<br/><span style="color:#0063FF">the Right Creators.</span></h1>
   <p style="font-size:18px;color:#5C6480;max-width:540px;margin:0 auto 36px;line-height:1.7">Browse real campaigns. Apply in 60 seconds.<br/>Get matched automatically with Creator Agenda.</p>
   <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-    <button class="btn bp blg" onclick="openModal('creator')">Apply as Creator →</button>
-    <button class="btn bo blg" onclick="openModal('brand')">Post a Campaign</button>
+    <button class="bp blg" onclick="goApp('creator')">Apply as Creator →</button>
+    <button class="bo blg" onclick="goApp('brand')">Post a Campaign</button>
   </div>
-  <div style="display:flex;justify-content:center;gap:60px;margin-top:52px;flex-wrap:wrap">
+  <div style="display:flex;justify-content:center;gap:clamp(24px,5vw,60px);margin-top:52px;flex-wrap:wrap">
     <div><div style="font-family:'Nunito',sans-serif;font-size:36px;font-weight:900;color:#0063FF">4,820+</div><div style="font-size:13px;color:#5C6480;font-weight:600;margin-top:2px">Creators</div></div>
     <div><div style="font-family:'Nunito',sans-serif;font-size:36px;font-weight:900;color:#0063FF">142</div><div style="font-size:13px;color:#5C6480;font-weight:600;margin-top:2px">Brands</div></div>
     <div><div style="font-family:'Nunito',sans-serif;font-size:36px;font-weight:900;color:#0063FF">$2.4M</div><div style="font-size:13px;color:#5C6480;font-weight:600;margin-top:2px">Paid Out</div></div>
     <div><div style="font-family:'Nunito',sans-serif;font-size:36px;font-weight:900;color:#0063FF">891</div><div style="font-size:13px;color:#5C6480;font-weight:600;margin-top:2px">Campaigns</div></div>
   </div>
 </section>
+<!-- AGENDA SECTION -->
 <section style="background:linear-gradient(160deg,#0A0A1A,#0D1535);padding:72px 5%">
   <div style="max-width:1000px;margin:0 auto;text-align:center">
     <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(124,58,237,.2);border:1px solid rgba(124,58,237,.4);border-radius:20px;padding:6px 16px;margin-bottom:16px;font-size:12px;font-weight:700;color:#A78BFA;text-transform:uppercase">✨ Creator Agenda</div>
-    <h2 style="font-family:'Nunito',sans-serif;font-size:42px;font-weight:900;color:#fff;margin-bottom:12px;line-height:1.15">Tell us what's happening in your life.<br/><span style="color:#818CF8">We find the brands.</span></h2>
+    <h2 style="font-family:'Nunito',sans-serif;font-size:clamp(26px,4vw,42px);font-weight:900;color:#fff;margin-bottom:12px;line-height:1.15">Tell us what's happening in your life.<br/><span style="color:#818CF8">We find the brands.</span></h2>
     <p style="font-size:16px;color:rgba(255,255,255,.6);max-width:520px;margin:0 auto 24px;line-height:1.7">No cold emails. No pitching. Log your life moment and we match you with brands automatically.</p>
-    <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:14px 20px;display:inline-flex;align-items:center;gap:12px;text-align:left;max-width:580px;margin-bottom:32px">
+    <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:14px 20px;display:inline-flex;align-items:flex-start;gap:12px;text-align:left;max-width:580px;margin-bottom:32px">
       <span style="font-size:24px;flex-shrink:0">💬</span>
-      <div>
-        <div style="font-size:11px;font-weight:700;color:rgba(255,255,255,.4);text-transform:uppercase;margin-bottom:4px">Real creator message</div>
-        <div style="font-size:14px;color:#fff;font-style:italic">"Je me cherche une collaboration pour un nouveau divan et une table a cuisine."</div>
-        <div style="font-size:12px;color:rgba(255,255,255,.4);margin-top:4px">Creator Agenda matches this automatically. No message needed.</div>
-      </div>
+      <div><div style="font-size:11px;font-weight:700;color:rgba(255,255,255,.4);text-transform:uppercase;margin-bottom:4px">Real creator message</div><div style="font-size:14px;color:#fff;font-style:italic">"Je me cherche une collaboration pour un nouveau divan et une table a cuisine."</div><div style="font-size:12px;color:rgba(255,255,255,.4);margin-top:4px">Creator Agenda matches this automatically. No message needed.</div></div>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:700px;margin:0 auto 28px">
-      <div onclick="openModal('creator')" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px 12px;text-align:center;cursor:pointer"><div style="font-size:26px;margin-bottom:6px">🏠</div><div style="font-size:13px;font-weight:700;color:#fff">New Home</div></div>
-      <div onclick="openModal('creator')" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px 12px;text-align:center;cursor:pointer"><div style="font-size:26px;margin-bottom:6px">✈️</div><div style="font-size:13px;font-weight:700;color:#fff">Travel</div></div>
-      <div onclick="openModal('creator')" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px 12px;text-align:center;cursor:pointer"><div style="font-size:26px;margin-bottom:6px">💪</div><div style="font-size:13px;font-weight:700;color:#fff">Fitness</div></div>
-      <div onclick="openModal('creator')" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px 12px;text-align:center;cursor:pointer"><div style="font-size:26px;margin-bottom:6px">👶</div><div style="font-size:13px;font-weight:700;color:#fff">Baby</div></div>
-      <div onclick="openModal('creator')" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px 12px;text-align:center;cursor:pointer"><div style="font-size:26px;margin-bottom:6px">🎓</div><div style="font-size:13px;font-weight:700;color:#fff">School</div></div>
-      <div onclick="openModal('creator')" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px 12px;text-align:center;cursor:pointer"><div style="font-size:26px;margin-bottom:6px">💍</div><div style="font-size:13px;font-weight:700;color:#fff">Wedding</div></div>
-      <div onclick="openModal('creator')" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px 12px;text-align:center;cursor:pointer"><div style="font-size:26px;margin-bottom:6px">🍳</div><div style="font-size:13px;font-weight:700;color:#fff">Food</div></div>
-      <div onclick="openModal('creator')" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px 12px;text-align:center;cursor:pointer"><div style="font-size:26px;margin-bottom:6px">👗</div><div style="font-size:13px;font-weight:700;color:#fff">Fashion</div></div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:680px;margin:0 auto 28px">
+      <button onclick="goApp('creator')" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px 12px;text-align:center"><div style="font-size:26px;margin-bottom:6px">🏠</div><div style="font-size:13px;font-weight:700;color:#fff">New Home</div></button>
+      <button onclick="goApp('creator')" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px 12px;text-align:center"><div style="font-size:26px;margin-bottom:6px">✈️</div><div style="font-size:13px;font-weight:700;color:#fff">Travel</div></button>
+      <button onclick="goApp('creator')" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px 12px;text-align:center"><div style="font-size:26px;margin-bottom:6px">💪</div><div style="font-size:13px;font-weight:700;color:#fff">Fitness</div></button>
+      <button onclick="goApp('creator')" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px 12px;text-align:center"><div style="font-size:26px;margin-bottom:6px">👶</div><div style="font-size:13px;font-weight:700;color:#fff">Baby</div></button>
+      <button onclick="goApp('creator')" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px 12px;text-align:center"><div style="font-size:26px;margin-bottom:6px">🎓</div><div style="font-size:13px;font-weight:700;color:#fff">School</div></button>
+      <button onclick="goApp('creator')" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px 12px;text-align:center"><div style="font-size:26px;margin-bottom:6px">💍</div><div style="font-size:13px;font-weight:700;color:#fff">Wedding</div></button>
+      <button onclick="goApp('creator')" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px 12px;text-align:center"><div style="font-size:26px;margin-bottom:6px">🍳</div><div style="font-size:13px;font-weight:700;color:#fff">Food</div></button>
+      <button onclick="goApp('creator')" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px 12px;text-align:center"><div style="font-size:26px;margin-bottom:6px">👗</div><div style="font-size:13px;font-weight:700;color:#fff">Fashion</div></button>
     </div>
-    <button class="btn bpu blg" onclick="openModal('creator')">Activate Creator Agenda</button>
+    <button class="bpu blg" onclick="goApp('creator')">Activate Creator Agenda</button>
   </div>
 </section>
+<!-- CAMPAIGNS -->
 <section style="background:#F8F9FF;padding:56px 5%">
   <div style="max-width:1100px;margin:0 auto">
     <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:28px;flex-wrap:wrap;gap:14px">
       <div><h2 style="font-family:'Nunito',sans-serif;font-size:32px;font-weight:800;margin-bottom:4px">Open Campaigns</h2><p style="font-size:14px;color:#5C6480">6 campaigns looking for creators right now</p></div>
-      <input id="srch" type="text" class="inp" placeholder="Search brands, niches..." style="width:260px" oninput="filterC()"/>
+      <input id="srch" type="text" class="inp" placeholder="Search brands, niches..." style="width:260px" oninput="filterCamps()"/>
     </div>
     <div class="gc" id="cg"></div>
   </div>
 </section>
+<!-- CAPITAL -->
 <section style="background:linear-gradient(135deg,#0063FF,#0041CC);padding:52px 5%;text-align:center">
   <div style="max-width:700px;margin:0 auto">
     <div style="font-size:36px;margin-bottom:12px">⚡</div>
     <h2 style="font-family:'Nunito',sans-serif;font-size:36px;font-weight:900;color:#fff;margin-bottom:12px">Colaboard Capital</h2>
     <p style="font-size:17px;color:rgba(255,255,255,.85);margin-bottom:28px;line-height:1.7">Don't wait 30-90 days.<br/>Speed Pay (15%) or Invoice Factoring (8%) — money in 72 hours.</p>
-    <button class="btn blg" style="background:#fff;color:#0063FF;border:none" onclick="openModal('creator')">Get Paid Faster</button>
+    <button class="blg" style="background:#fff;color:#0063FF;border:none;border-radius:12px;padding:14px 28px;font-weight:700;font-size:15px" onclick="goApp('creator')">Get Paid Faster</button>
   </div>
 </section>
 <footer style="background:#0A0A1A;padding:40px 5%">
   <div style="max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px">
     <div class="logo" style="color:#fff">Cola<b>board</b></div>
     <div style="font-size:13px;color:rgba(255,255,255,.4)">2025 Colaboard Inc. · Ontario, Canada · hello@colaboard.com</div>
-    <div style="display:flex;gap:20px">
-      <span style="font-size:13px;color:rgba(255,255,255,.5);cursor:pointer" onclick="openModal('creator')">Creators</span>
-      <span style="font-size:13px;color:rgba(255,255,255,.5);cursor:pointer" onclick="openModal('brand')">Brands</span>
-      <span style="font-size:13px;color:rgba(255,255,255,.5);cursor:pointer" onclick="openModal('creator')">Capital</span>
-    </div>
   </div>
 </footer>
 </div>
 
-<!-- MODAL -->
+<!-- PAGE: APP -->
 
-<div id="mdl" class="overlay hidden" onclick="if(event.target===this)closeModal()">
-  <div class="mbox">
-    <div class="logo" style="font-size:22px;margin-bottom:22px">Cola<b>board</b></div>
-    <h2 id="mt" style="font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;margin-bottom:6px"></h2>
-    <p id="ms" style="font-size:14px;color:#5C6480;margin-bottom:22px"></p>
-    <div style="margin-bottom:14px"><div class="lbl">Full Name</div><input id="mn" class="inp" placeholder="Your name"/></div>
-    <div style="margin-bottom:22px"><div class="lbl">Email</div><input id="me" class="inp" type="email" placeholder="your@email.com"/></div>
-    <button id="mb" class="btn bp" style="width:100%;padding:13px;font-size:15px;border-radius:11px" onclick="doLogin()"></button>
-    <button class="btn bo" style="width:100%;margin-top:10px" onclick="closeModal()">Cancel</button>
-  </div>
-</div>
-
-<!-- APP -->
-
-<div id="app" class="hidden">
+<div id="page-app" style="display:none">
 <nav class="nav">
   <div class="logo">Cola<b>board</b></div>
   <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap">
     <span style="font-size:12px;color:#5C6480">View as:</span>
-    <button id="tb-brand" class="btn bp bsm" onclick="switchView('brand')">Brand</button>
-    <button id="tb-creator" class="btn bo bsm" onclick="switchView('creator')">Creator</button>
-    <button id="tb-capital" class="btn bo bsm" onclick="switchView('capital')">Capital</button>
-    <button id="tb-admin" class="btn bsm" style="background:transparent;color:#7C3AED;border:1.5px solid #7C3AED" onclick="switchView('admin')">Agenda Admin</button>
+    <button id="tab-brand" class="bp bsm" onclick="switchView('brand')">Brand</button>
+    <button id="tab-creator" class="bo bsm" onclick="switchView('creator')">Creator</button>
+    <button id="tab-capital" class="bo bsm" onclick="switchView('capital')">Capital</button>
+    <button id="tab-admin" class="bsm" style="background:transparent;color:#7C3AED;border:1.5px solid #7C3AED" onclick="switchView('admin')">Agenda Admin</button>
     <div style="width:1px;height:24px;background:#DDE1EE;margin:0 4px"></div>
     <div style="width:32px;height:32px;border-radius:50%;background:#0063FF;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px">JE</div>
     <span style="font-size:13px;font-weight:600">Jacques</span>
   </div>
 </nav>
 <div style="display:flex;min-height:calc(100vh - 64px)">
-  <aside id="sb" style="width:210px;background:#fff;border-right:1px solid #DDE1EE;padding:14px 10px;flex-shrink:0"></aside>
-  <main id="mn2" style="flex:1;overflow-y:auto;background:#F5F7FF"></main>
+  <aside id="sidebar" style="width:200px;background:#fff;border-right:1px solid #DDE1EE;padding:12px 8px;flex-shrink:0"></aside>
+  <main id="content" style="flex:1;overflow-y:auto;background:#F5F7FF;min-height:0"></main>
 </div>
 </div>
 
 <script>
+// ── DATA ─────────────────────────────────────────────
 var CAMPS=[
   {id:1,brand:"Glossier",logo:"💄",name:"Summer Glow Collection",platforms:["Instagram","TikTok"],budget:"$2,500-$4,000",deadline:"June 15",niche:"Beauty & Lifestyle",spots:8},
   {id:2,brand:"Samsung Canada",logo:"📱",name:"Back to School Tech",platforms:["YouTube","TikTok"],budget:"$1,500-$3,000",deadline:"Aug 1",niche:"Tech & Education",spots:5},
@@ -167,12 +141,32 @@ var CAMPS=[
   {id:6,brand:"Indigo Books",logo:"📚",name:"Summer Reading Campaign",platforms:["Instagram","TikTok"],budget:"$800-$1,800",deadline:"July 15",niche:"Books & Culture",spots:6}
 ];
 var BRANDS={
-  "New Home / Moving":[{brand:"Article",email:"partnerships@article.com",why:"Canadian DTC furniture — active creator collabs during home moves",value:"$1,800-$3,200"},{brand:"IKEA Canada",email:"influencer@ikea.ca",why:"Mass reach, perfect for home setup content",value:"$1,200-$2,500"},{brand:"EQ3",email:"marketing@eq3.com",why:"Canadian premium furniture",value:"$2,000-$3,500"},{brand:"Structube",email:"collab@structube.com",why:"Sofa and kitchen table is their core product",value:"$900-$1,800"}],
-  "Travel":[{brand:"Air Canada",email:"socialmedia@aircanada.ca",why:"Active creator program, Canadian travel stories",value:"$1,200-$2,400"},{brand:"Booking.com",email:"creators@booking.com",why:"Global program, fast approvals",value:"$1,500-$3,000"}],
-  "Fitness Journey":[{brand:"Hoka Running",email:"creators@hoka.com",why:"Premium running shoes, loves authentic journey stories",value:"$2,800-$4,000"},{brand:"Lululemon",email:"ambassador@lululemon.com",why:"Canadian brand, massive collab program",value:"$3,000-$5,000"}],
-  "Baby / Family":[{brand:"Carters Canada",email:"marketing@carters.ca",why:"Top baby brand",value:"$900-$1,500"},{brand:"UPPAbaby",email:"social@uppababy.com",why:"Premium stroller brand",value:"$1,800-$3,000"}],
-  "Back to School":[{brand:"Samsung Canada",email:"influencer@samsung.ca",why:"Big budget tech content",value:"$1,500-$3,000"},{brand:"Indigo",email:"creators@indigo.ca",why:"Books and supplies",value:"$800-$1,600"}],
-  "Wedding":[{brand:"Davids Bridal",email:"influencer@davidsbridal.com",why:"Fast to activate",value:"$800-$1,800"},{brand:"Zola",email:"creators@zola.com",why:"Wedding registry app",value:"$1,200-$2,500"}]
+  "New Home / Moving":[
+    {brand:"Article",email:"partnerships@article.com",why:"Canadian DTC furniture — active during home moves",value:"$1,800-$3,200"},
+    {brand:"IKEA Canada",email:"influencer@ikea.ca",why:"Mass reach, perfect for home setup content",value:"$1,200-$2,500"},
+    {brand:"EQ3",email:"marketing@eq3.com",why:"Canadian premium furniture brand",value:"$2,000-$3,500"},
+    {brand:"Structube",email:"collab@structube.com",why:"Sofa and kitchen table is their core product",value:"$900-$1,800"}
+  ],
+  "Travel":[
+    {brand:"Air Canada",email:"socialmedia@aircanada.ca",why:"Active creator program, Canadian travel stories",value:"$1,200-$2,400"},
+    {brand:"Booking.com",email:"creators@booking.com",why:"Global program, fast approvals",value:"$1,500-$3,000"}
+  ],
+  "Fitness Journey":[
+    {brand:"Hoka Running",email:"creators@hoka.com",why:"Loves authentic fitness journey stories",value:"$2,800-$4,000"},
+    {brand:"Lululemon",email:"ambassador@lululemon.com",why:"Canadian brand, massive collab program",value:"$3,000-$5,000"}
+  ],
+  "Baby / Family":[
+    {brand:"Carters Canada",email:"marketing@carters.ca",why:"Top baby brand, seeks authentic parent creators",value:"$900-$1,500"},
+    {brand:"UPPAbaby",email:"social@uppababy.com",why:"Premium stroller brand",value:"$1,800-$3,000"}
+  ],
+  "Back to School":[
+    {brand:"Samsung Canada",email:"influencer@samsung.ca",why:"Big budget tech content Aug-Sept",value:"$1,500-$3,000"},
+    {brand:"Indigo",email:"creators@indigo.ca",why:"Books and supplies, very active program",value:"$800-$1,600"}
+  ],
+  "Wedding":[
+    {brand:"Davids Bridal",email:"influencer@davidsbridal.com",why:"Fast to activate, authentic content",value:"$800-$1,800"},
+    {brand:"Zola",email:"creators@zola.com",why:"Wedding registry app, big creator program",value:"$1,200-$2,500"}
+  ]
 };
 var EVTS=[
   {id:"New Home / Moving",icon:"🏠",label:"New Home",sub:"Moving, furniture"},
@@ -184,205 +178,396 @@ var EVTS=[
   {id:"Food & Cooking",icon:"🍳",label:"Food",sub:"Recipes, cooking"},
   {id:"Fashion / Style",icon:"👗",label:"Fashion",sub:"Style, shopping"}
 ];
-var NAVS={
-  brand:[{id:"ov",icon:"🏠",lbl:"Overview"},{id:"nc",icon:"➕",lbl:"New Campaign"},{id:"mc",icon:"🚀",lbl:"My Campaigns"},{id:"ca",icon:"👥",lbl:"Creator Applications"},{id:"cr",icon:"🎬",lbl:"Review Content"},{id:"py",icon:"💳",lbl:"Payments"}],
-  creator:[{id:"fd",icon:"🔍",lbl:"Browse Campaigns"},{id:"cl",icon:"🤝",lbl:"My Collabs"},{id:"sc",icon:"📤",lbl:"Submit Content"},{id:"er",icon:"💰",lbl:"Earnings"},{id:"ag",icon:"✨",lbl:"Creator Agenda"}],
-  capital:[{id:"ov",icon:"📊",lbl:"Overview"},{id:"sp",icon:"⚡",lbl:"Speed Pay"},{id:"if",icon:"🧾",lbl:"Invoice Factoring"}],
-  admin:[{id:"ad",icon:"✨",lbl:"Agenda Submissions"}]
-};
-var S={view:"brand",page:"ov",lt:"creator",applied:[1],selC:[4],subs:[
+
+// ── STATE ─────────────────────────────────────────────
+var V="brand", P="ov";
+var applied=[1], selC=[4], agStep=0, agEv=null, agDone=false, spSel=null;
+var subs=[
   {id:1,name:"Amanda Boily",handle:"@amandaboily",followers:"24K",platform:"Instagram",event:"New Home / Moving",detail:"Cherche collab pour nouveau divan et table a cuisine",location:"Montreal",at:"Today 2:33PM",status:"new"},
   {id:2,name:"Sarah Tremblay",handle:"@sarahtremblay",followers:"58K",platform:"TikTok",event:"Fitness Journey",detail:"Training for my first half-marathon",location:"Quebec City",at:"Today 11:15AM",status:"pitched"},
   {id:3,name:"Lea Fontaine",handle:"@ledfontaine",followers:"12K",platform:"Instagram",event:"Baby / Family",detail:"Expecting my first baby in August",location:"Montreal",at:"Yesterday",status:"deal"}
-],selSub:null,agStep:0,agEv:null,agDone:false,spSel:null};
-S.selSub=S.subs[0];
+];
+var selSub=subs[0];
 
-function openModal(t){
-  S.lt=t;
-  var T={creator:"Join as Creator",brand:"Post a Campaign"};
-  var Sub={creator:"Apply to campaigns and get paid fast.",brand:"Find the right creators for your brand."};
-  var B={creator:"Continue as Creator",brand:"Continue as Brand"};
-  document.getElementById('mt').textContent=T[t]||T.creator;
-  document.getElementById('ms').textContent=Sub[t]||Sub.creator;
-  document.getElementById('mb').textContent=B[t]||B.creator;
-  document.getElementById('mdl').classList.remove('hidden');
+// ── NAVIGATION ────────────────────────────────────────
+function goApp(role) {
+  document.getElementById('page-landing').style.display = 'none';
+  document.getElementById('page-app').style.display = 'block';
+  switchView(role === 'brand' ? 'brand' : 'creator');
 }
-function closeModal(){document.getElementById('mdl').classList.add('hidden');}
-function doLogin(){
-  closeModal();
-  document.getElementById('landing').classList.add('hidden');
-  document.getElementById('app').classList.remove('hidden');
-  switchView(S.lt==='brand'?'brand':'creator');
-}
-function filterC(){
-  var q=document.getElementById('srch').value.toLowerCase();
-  renderCG(CAMPS.filter(function(c){return c.name.toLowerCase().indexOf(q)>=0||c.brand.toLowerCase().indexOf(q)>=0||c.niche.toLowerCase().indexOf(q)>=0;}));
-}
-function renderCG(list){
-  var g=document.getElementById('cg');
-  if(!g)return;
-  g.innerHTML=list.map(function(c){
-    var a=S.applied.indexOf(c.id)>=0;
-    return '<div class="card" style="padding:18px 20px">'+
-      '<div style="display:flex;gap:12px;margin-bottom:12px"><div style="width:46px;height:46px;border-radius:10px;background:#F8F9FF;border:1px solid #DDE1EE;display:flex;align-items:center;justify-content:center;font-size:22px">'+c.logo+'</div>'+
-      '<div><div style="font-weight:700;font-size:15px;margin-bottom:2px">'+c.name+'</div><div style="font-size:12px;color:#5C6480">'+c.brand+'</div></div></div>'+
-      '<div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px">'+c.platforms.map(function(p){return '<span class="badge">'+p+'</span>';}).join('')+'<span class="badge" style="background:#E8F0FF;color:#0063FF">'+c.niche+'</span></div>'+
-      '<div style="display:flex;justify-content:space-between;align-items:center;padding-top:10px;border-top:1px solid #EEF0F8">'+
-      '<div><div style="font-weight:800;font-size:15px;color:#0063FF">'+c.budget+'</div><div style="font-size:11px;color:#5C6480">'+c.spots+' spots · '+c.deadline+'</div></div>'+
-      (a?'<span class="badge" style="background:#EDFAF4;color:#00B37E">Applied</span>':
-      '<button class="btn bp bsm" onclick="applyC('+c.id+')">Apply Now</button>')+
-      '</div></div>';
-  }).join('');
-}
-function applyC(id){if(S.applied.indexOf(id)<0)S.applied.push(id);openModal('creator');}
-function statBox(lbl,val,ico,col){
-  return '<div class="stat"><div style="width:42px;height:42px;border-radius:11px;background:'+col+'18;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">'+ico+'</div><div><div style="font-size:24px;font-weight:800;line-height:1">'+val+'</div><div style="font-size:11px;color:#5C6480;font-weight:600;margin-top:3px;text-transform:uppercase">'+lbl+'</div></div></div>';
-}
-function switchView(v){
-  S.view=v;S.page=v==='admin'?'ad':'ov';
-  ['brand','creator','capital','admin'].forEach(function(t){
-    var b=document.getElementById('tb-'+t);if(!b)return;
-    if(t===v&&t==='admin'){b.className='btn bsm';b.style.cssText='background:#7C3AED;color:#fff;border:none;padding:6px 13px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer';}
-    else if(t===v){b.className='btn bp bsm';b.style.cssText='';}
-    else if(t==='admin'){b.className='btn bsm';b.style.cssText='background:transparent;color:#7C3AED;border:1.5px solid #7C3AED;padding:6px 12px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer';}
-    else{b.className='btn bo bsm';b.style.cssText='';}
-  });
-  renderSB();renderMain();
-}
-function renderSB(){
-  var nav=NAVS[S.view]||[];
-  document.getElementById('sb').innerHTML=nav.map(function(item){
-    return '<button class="sb'+(S.page===item.id?' on':'')+'" onclick="goPage(\''+item.id+'\')"><span style="font-size:16px">'+item.icon+'</span>'+item.lbl+'</button>';
-  }).join('');
-}
-function goPage(p){S.page=p;renderSB();renderMain();}
-function renderMain(){
-  var m=document.getElementById('mn2');
-  if(S.view==='brand')m.innerHTML=getBrand();
-  else if(S.view==='creator')m.innerHTML=getCreator();
-  else if(S.view==='capital')m.innerHTML=getCapital();
-  else if(S.view==='admin')m.innerHTML=getAdmin();
-}
-function getBrand(){
-  var p=S.page;
-  if(p==='ov')return '<div style="padding:28px"><h1 style="font-size:26px;font-weight:800;margin-bottom:4px">Brand Dashboard</h1><p style="font-size:14px;color:#5C6480;margin-bottom:22px">Here is your campaign activity.</p>'+
-    '<div class="g4">'+statBox('Active Campaigns','3','🚀','#0063FF')+statBox('Creators Engaged','12','👥','#00B37E')+statBox('Content Pending','5','🎬','#F59E0B')+statBox('Total Invested','$24.6K','💰','#7C3AED')+'</div>'+
-    '<div class="g2">'+
-    '<div class="card"><h3 style="font-size:16px;font-weight:700;margin-bottom:14px">Active Campaigns</h3>'+
-    [['Summer Glow Collection','In Progress',4,'$8,400',60],['Back to School Tech','Concept Review',3,'$5,200',35],['Holiday Fitness','Recruiting',0,'$6,800',10]].map(function(c){return '<div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid #EEF0F8"><div><div style="font-weight:600;font-size:14px">'+c[0]+'</div><div style="font-size:12px;color:#5C6480">'+c[2]+' creators · '+c[3]+'</div></div><div style="text-align:right"><span class="badge" style="background:#E8F0FF;color:#0063FF">'+c[1]+'</span><div style="font-size:12px;color:#5C6480;margin-top:4px">'+c[4]+'%</div></div></div>';}).join('')+'</div>'+
-    '<div class="card"><h3 style="font-size:16px;font-weight:700;margin-bottom:14px">Pending Actions</h3>'+
-    ['Review 3 applications','Approve concept from @sophielaurent','Release payment to @remidubois','Review final content'].map(function(a){return '<div style="display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid #EEF0F8"><span>⚠️</span><span style="font-size:13px">'+a+'</span></div>';}).join('')+'</div></div></div>';
-  if(p==='nc')return '<div style="padding:28px;max-width:720px"><h1 style="font-size:24px;font-weight:800;margin-bottom:22px">Create Campaign</h1><div class="card"><div style="margin-bottom:14px"><div class="lbl">Brand Name</div><input class="inp" placeholder="e.g. Nike Canada"/></div><div style="margin-bottom:14px"><div class="lbl">Campaign Name</div><input class="inp" placeholder="e.g. Summer Launch 2025"/></div><div style="margin-bottom:14px"><div class="lbl">Budget (CAD)</div><input class="inp" placeholder="e.g. 5000"/></div><div style="margin-bottom:20px"><div class="lbl">Campaign Brief</div><textarea class="inp" rows="4" placeholder="Goals, tone, key messages..."></textarea></div><button class="btn bp blg" style="width:100%" onclick="alert(\'Campaign launched!\')">Launch Campaign</button></div></div>';
 
-if(p===‘mc’)return ‘<div style="padding:28px"><h1 style="font-size:24px;font-weight:800;margin-bottom:22px">My Campaigns</h1>’+
-[[‘Summer Glow Collection’,‘Glossier’,‘Active’,4,’$8,400’,60,’$5,040’],[‘Back to School Tech’,‘Samsung’,‘Review’,3,’$5,200’,35,’$1,820’],[‘Holiday Fitness’,‘Lululemon’,‘Recruiting’,0,’$6,800’,10,’$0’],[‘Spring Food Campaign’,‘HelloFresh’,‘Completed’,6,’$4,200’,100,’$4,200’]].map(function(c){
-var sb=c[2]===‘Active’?’#EDFAF4’:c[2]===‘Completed’?’#EEF0F8’:c[2]===‘Review’?’#FFFBEB’:’#E8F0FF’;
-var sc=c[2]===‘Active’?’#00B37E’:c[2]===‘Completed’?’#5C6480’:c[2]===‘Review’?’#F59E0B’:’#0063FF’;
-return ‘<div class="card" style="margin-bottom:12px;padding:18px 22px"><div style="display:flex;align-items:center;justify-content:space-between"><div style="flex:1"><div style="display:flex;align-items:center;gap:10px;margin-bottom:6px"><span style="font-weight:700;font-size:15px">’+c[0]+’</span><span class="badge" style="background:'+sb+';color:'+sc+'">’+c[2]+’</span></div><div style="font-size:12px;color:#5C6480">’+c[1]+’</div><div style="margin-top:8px;background:#EEF0F8;border-radius:4px;height:4px;width:200px"><div style="height:4px;border-radius:4px;background:'+(c[5]===100?'#00B37E':'#0063FF')+';width:'+c[5]+'%"></div></div></div><div style="display:flex;gap:20px;text-align:right"><div><div style="font-weight:700;font-size:15px">’+c[3]+’</div><div style="font-size:11px;color:#5C6480">Creators</div></div><div><div style="font-weight:700;font-size:15px">’+c[4]+’</div><div style="font-size:11px;color:#5C6480">Budget</div></div><div><div style="font-weight:700;font-size:15px">’+c[6]+’</div><div style="font-size:11px;color:#5C6480">Spent</div></div></div></div></div>’;
-}).join(’’)+’</div>’;
-if(p===‘ca’){
-var crs=[{id:1,name:“Sophie Laurent”,handle:”@sophielaurent”,followers:“142K”,platform:“Instagram”,niche:“Lifestyle & Beauty”,rate:2800,score:96},{id:2,name:“Marcus Chen”,handle:”@marcuschen”,followers:“89K”,platform:“TikTok”,niche:“Tech & Gaming”,rate:1900,score:88},{id:3,name:“Aaliya Owens”,handle:”@aaliyaowens”,followers:“205K”,platform:“YouTube”,niche:“Fitness”,rate:3500,score:92},{id:4,name:“Remi Dubois”,handle:”@remidubois”,followers:“67K”,platform:“Instagram”,niche:“Fashion”,rate:1600,score:84}];
-return ‘<div style="padding:28px"><h1 style="font-size:24px;font-weight:800;margin-bottom:6px">Creator Applications</h1><p style="font-size:14px;color:#5C6480;margin-bottom:22px">Summer Glow Collection · 4 applicants</p>’+
-crs.map(function(cr){
-var sel=S.selC.indexOf(cr.id)>=0;
-var ini=cr.name.split(’ ‘).map(function(w){return w[0];}).join(’’);
-return ‘<div class="card" style="margin-bottom:12px;padding:16px 20px;border-color:'+(sel?'#0063FF':'#DDE1EE')+'"><div style="display:flex;align-items:center;gap:14px"><div style="width:44px;height:44px;border-radius:50%;background:#0063FF;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;flex-shrink:0">’+ini+’</div><div style="flex:1"><div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><span style="font-weight:700;font-size:15px">’+cr.name+’</span><span style="font-size:12px;color:#5C6480">’+cr.handle+’</span><span class="badge" style="background:#FFFBEB;color:#F59E0B">★ ‘+cr.score+’</span></div><div style="display:flex;gap:6px;flex-wrap:wrap"><span class="badge">’+cr.platform+’</span><span class="badge">’+cr.followers+’</span><span class="badge">’+cr.niche+’</span></div></div><div style="text-align:right;min-width:100px"><div style="font-weight:800;font-size:16px;color:#0063FF">CAD $’+cr.rate.toLocaleString()+’</div><div style="font-size:11px;color:#5C6480;margin-bottom:8px">requested</div><button class="btn bsm '+(sel?'bg':'bp')+'" onclick="togC('+cr.id+')">’+(sel?‘Selected’:‘Select’)+’</button></div></div></div>’;
-}).join(’’)+
-‘<div style="margin-top:16px;padding:14px 18px;border-radius:10px;background:#EDFAF4;display:flex;justify-content:space-between;align-items:center"><span style="font-weight:600;color:#00B37E">’+S.selC.length+’ creator’+(S.selC.length!==1?‘s’:’’)+’ selected</span><button class="btn bg" onclick="alert(\'Contracts sent!\')">Send Contracts</button></div></div>’;
+function switchView(v) {
+  V = v;
+  P = v === 'admin' ? 'ad' : 'ov';
+  var tabs = ['brand','creator','capital','admin'];
+  for (var i = 0; i < tabs.length; i++) {
+    var t = tabs[i];
+    var b = document.getElementById('tab-' + t);
+    if (!b) continue;
+    b.removeAttribute('style');
+    b.className = 'bsm';
+    if (t === v) {
+      if (t === 'admin') { b.style.background = '#7C3AED'; b.style.color = '#fff'; b.style.border = 'none'; }
+      else { b.className = 'bp bsm'; }
+    } else {
+      if (t === 'admin') { b.style.background = 'transparent'; b.style.color = '#7C3AED'; b.style.border = '1.5px solid #7C3AED'; }
+      else { b.className = 'bo bsm'; }
+    }
+  }
+  renderSidebar();
+  renderContent();
 }
-if(p===‘cr’)return ‘<div style="padding:28px"><h1 style="font-size:24px;font-weight:800;margin-bottom:22px">Content Review</h1>’+
-[{creator:“Sophie Laurent”,type:“Instagram Reel”,status:“Pending Review”,icon:“🎬”},{creator:“Marcus Chen”,type:“TikTok Video”,status:“Approved”,icon:“✅”},{creator:“Aaliya Owens”,type:“YouTube Video”,status:“Revision Requested”,icon:“✏️”},{creator:“Remi Dubois”,type:“3x Stories”,status:“Pending Review”,icon:“📱”}].map(function(c){
-var bg=c.status===“Approved”?”#EDFAF4”:c.status===“Revision Requested”?”#FFFBEB”:”#E8F0FF”;
-var col=c.status===“Approved”?”#00B37E”:c.status===“Revision Requested”?”#F59E0B”:”#0063FF”;
-return ‘<div class="card" style="margin-bottom:12px;padding:16px 20px"><div style="display:flex;align-items:center;gap:14px"><div style="width:50px;height:50px;border-radius:10px;background:#EEF0F8;display:flex;align-items:center;justify-content:center;font-size:24px">’+c.icon+’</div><div style="flex:1"><div style="font-weight:700;font-size:14px;margin-bottom:3px">’+c.type+’</div><div style="font-size:12px;color:#5C6480">by ‘+c.creator+’</div></div><div style="display:flex;gap:8px;align-items:center"><span class="badge" style="background:'+bg+';color:'+col+'">’+c.status+’</span>’+(c.status===“Pending Review”?’<button class="btn bg bsm" onclick="alert(\'Approved!\')">Approve</button>’:’’)+’</div></div></div>’;
-}).join(’’)+’</div>’;
-if(p===‘py’)return ‘<div style="padding:28px"><h1 style="font-size:24px;font-weight:800;margin-bottom:22px">Payments</h1>’+
-‘<div class="g3">’+statBox(‘In Escrow’,’$9,900’,‘🔒’,’#F59E0B’)+statBox(‘Ready to Release’,’$1,600’,‘✅’,’#00B37E’)+statBox(‘Released’,’$4,780’,‘💸’,’#0063FF’)+’</div>’+
-[{creator:“Sophie Laurent”,campaign:“Summer Glow”,amount:”$2,800”,status:“Held in Escrow”},{creator:“Remi Dubois”,campaign:“Summer Glow”,amount:”$1,600”,status:“Ready to Release”},{creator:“Marcus Chen”,campaign:“Back to School”,amount:”$1,900”,status:“Released”},{creator:“Aaliya Owens”,campaign:“Summer Glow”,amount:”$3,500”,status:“Held in Escrow”}].map(function(p){
-var ini=p.creator.split(’ ‘).map(function(w){return w[0];}).join(’’);
-var rdy=p.status===‘Ready to Release’||p.status===‘Released’;
-return ‘<div class="card" style="margin-bottom:10px;padding:14px 20px"><div style="display:flex;align-items:center;justify-content:space-between"><div style="display:flex;align-items:center;gap:10px"><div style="width:36px;height:36px;border-radius:50%;background:#0063FF;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px">’+ini+’</div><div><div style="font-weight:600;font-size:14px">’+p.creator+’</div><div style="font-size:12px;color:#5C6480">’+p.campaign+’</div></div></div><div style="display:flex;align-items:center;gap:12px"><span style="font-weight:800;font-size:16px;color:#0063FF">’+p.amount+’</span><span class="badge" style="background:'+(rdy?'#EDFAF4':'#FFFBEB')+';color:'+(rdy?'#00B37E':'#F59E0B')+'">’+p.status+’</span>’+(p.status===‘Ready to Release’?’<button class="btn bg bsm" onclick="alert(\'Payment released!\')">Release</button>’:’’)+’</div></div></div>’;
-}).join(’’)+’</div>’;
+
+var NAVS = {
+  brand: [{id:"ov",icon:"🏠",lbl:"Overview"},{id:"nc",icon:"➕",lbl:"New Campaign"},{id:"mc",icon:"🚀",lbl:"My Campaigns"},{id:"ca",icon:"👥",lbl:"Creator Apps"},{id:"cr",icon:"🎬",lbl:"Review Content"},{id:"py",icon:"💳",lbl:"Payments"}],
+  creator: [{id:"fd",icon:"🔍",lbl:"Browse Campaigns"},{id:"cl",icon:"🤝",lbl:"My Collabs"},{id:"sc",icon:"📤",lbl:"Submit Content"},{id:"er",icon:"💰",lbl:"Earnings"},{id:"ag",icon:"✨",lbl:"Creator Agenda"}],
+  capital: [{id:"ov",icon:"📊",lbl:"Overview"},{id:"sp",icon:"⚡",lbl:"Speed Pay"},{id:"if",icon:"🧾",lbl:"Invoice Factoring"}],
+  admin: [{id:"ad",icon:"✨",lbl:"Agenda Submissions"}]
+};
+
+function renderSidebar() {
+  var nav = NAVS[V] || [];
+  var html = '';
+  for (var i = 0; i < nav.length; i++) {
+    var item = nav[i];
+    html += '<button class="sb' + (P === item.id ? ' on' : '') + '" onclick="goPage(\'' + item.id + '\')">';
+    html += '<span style="font-size:16px">' + item.icon + '</span>' + item.lbl + '</button>';
+  }
+  document.getElementById('sidebar').innerHTML = html;
+}
+
+function goPage(p) {
+  P = p;
+  renderSidebar();
+  renderContent();
+}
+
+function renderContent() {
+  var el = document.getElementById('content');
+  if (!el) return;
+  var html = '';
+  if (V === 'brand') html = getBrand();
+  else if (V === 'creator') html = getCreator();
+  else if (V === 'capital') html = getCapital();
+  else if (V === 'admin') html = getAdmin();
+  el.innerHTML = html;
+}
+
+// ── HELPERS ───────────────────────────────────────────
+function sb(lbl, val, ico, col) {
+  return '<div class="stat"><div style="width:42px;height:42px;border-radius:11px;background:' + col + '18;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">' + ico + '</div><div><div style="font-size:24px;font-weight:800;line-height:1">' + val + '</div><div style="font-size:11px;color:#5C6480;font-weight:600;margin-top:3px;text-transform:uppercase">' + lbl + '</div></div></div>';
+}
+
+function campCard(c, applied) {
+  return '<div class="card" style="padding:18px 20px">' +
+    '<div style="display:flex;gap:12px;margin-bottom:12px">' +
+    '<div style="width:46px;height:46px;border-radius:10px;background:#F8F9FF;border:1px solid #DDE1EE;display:flex;align-items:center;justify-content:center;font-size:22px">' + c.logo + '</div>' +
+    '<div><div style="font-weight:700;font-size:15px;margin-bottom:2px">' + c.name + '</div><div style="font-size:12px;color:#5C6480">' + c.brand + '</div></div></div>' +
+    '<div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px">' +
+    c.platforms.map(function(p){return '<span class="bdg">' + p + '</span>';}).join('') +
+    '<span class="bdg" style="background:#E8F0FF;color:#0063FF">' + c.niche + '</span></div>' +
+    '<div style="display:flex;justify-content:space-between;align-items:center;padding-top:10px;border-top:1px solid #EEF0F8">' +
+    '<div><div style="font-weight:800;font-size:15px;color:#0063FF">' + c.budget + '</div>' +
+    '<div style="font-size:11px;color:#5C6480">' + c.spots + ' spots · ' + c.deadline + '</div></div>' +
+    (applied ? '<span class="bdg" style="background:#EDFAF4;color:#00B37E">Applied</span>' :
+      '<button class="bp bsm" onclick="applyC(' + c.id + ')">Apply Now</button>') +
+    '</div></div>';
+}
+
+// ── LANDING CAMPAIGNS ─────────────────────────────────
+function renderCG(list) {
+  var g = document.getElementById('cg');
+  if (!g) return;
+  var html = '';
+  for (var i = 0; i < list.length; i++) {
+    html += campCard(list[i], applied.indexOf(list[i].id) >= 0);
+  }
+  g.innerHTML = html;
+}
+
+function filterCamps() {
+  var q = document.getElementById('srch').value.toLowerCase();
+  renderCG(CAMPS.filter(function(c) {
+    return c.name.toLowerCase().indexOf(q) >= 0 || c.brand.toLowerCase().indexOf(q) >= 0 || c.niche.toLowerCase().indexOf(q) >= 0;
+  }));
+}
+
+function applyC(id) {
+  if (applied.indexOf(id) < 0) applied.push(id);
+  goApp('creator');
+}
+
+// ── BRAND PAGES ───────────────────────────────────────
+function getBrand() {
+  if (P === 'ov') return '<div style="padding:28px">' +
+    '<h1 style="font-size:26px;font-weight:800;margin-bottom:4px">Brand Dashboard</h1>' +
+    '<p style="font-size:14px;color:#5C6480;margin-bottom:22px">Good morning! Here is your campaign activity.</p>' +
+    '<div class="g4">' + sb('Active Campaigns','3','🚀','#0063FF') + sb('Creators Engaged','12','👥','#00B37E') + sb('Content Pending','5','🎬','#F59E0B') + sb('Total Invested','$24.6K','💰','#7C3AED') + '</div>' +
+    '<div class="g2">' +
+    '<div class="card"><h3 style="font-size:16px;font-weight:700;margin-bottom:14px">Active Campaigns</h3>' +
+    [['Summer Glow Collection','In Progress',4,'$8,400',60],['Back to School Tech','Concept Review',3,'$5,200',35],['Holiday Fitness','Recruiting',0,'$6,800',10]].map(function(c) {
+      return '<div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid #EEF0F8">' +
+        '<div><div style="font-weight:600;font-size:14px">' + c[0] + '</div><div style="font-size:12px;color:#5C6480">' + c[2] + ' creators · ' + c[3] + '</div></div>' +
+        '<div style="text-align:right"><span class="bdg" style="background:#E8F0FF;color:#0063FF">' + c[1] + '</span><div style="font-size:12px;color:#5C6480;margin-top:4px">' + c[4] + '%</div></div></div>';
+    }).join('') + '</div>' +
+    '<div class="card"><h3 style="font-size:16px;font-weight:700;margin-bottom:14px">Pending Actions</h3>' +
+    ['Review 3 applications','Approve concept from @sophielaurent','Release payment to @remidubois','Review final content'].map(function(a) {
+      return '<div style="display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid #EEF0F8"><span>⚠️</span><span style="font-size:13px">' + a + '</span></div>';
+    }).join('') + '</div></div></div>';
+
+  if (P === 'nc') return '<div style="padding:28px;max-width:720px">' +
+    '<h1 style="font-size:24px;font-weight:800;margin-bottom:22px">Create Campaign</h1>' +
+    '<div class="card">' +
+    '<div style="margin-bottom:14px"><div style="font-size:11px;font-weight:700;color:#5C6480;text-transform:uppercase;margin-bottom:5px">Brand Name</div><input class="inp" placeholder="e.g. Nike Canada"/></div>' +
+    '<div style="margin-bottom:14px"><div style="font-size:11px;font-weight:700;color:#5C6480;text-transform:uppercase;margin-bottom:5px">Campaign Name</div><input class="inp" placeholder="e.g. Summer Launch 2025"/></div>' +
+    '<div style="margin-bottom:14px"><div style="font-size:11px;font-weight:700;color:#5C6480;text-transform:uppercase;margin-bottom:5px">Budget (CAD)</div><input class="inp" placeholder="e.g. 5000"/></div>' +
+    '<div style="margin-bottom:20px"><div style="font-size:11px;font-weight:700;color:#5C6480;text-transform:uppercase;margin-bottom:5px">Campaign Brief</div><textarea class="inp" rows="4" placeholder="Goals, tone, key messages..."></textarea></div>' +
+
+```
+'<button class="bp blg" style="width:100%" onclick="alert(\'Campaign launched!\')">Launch Campaign</button></div></div>';
+```
+
+if (P === ‘mc’) return ‘<div style="padding:28px"><h1 style="font-size:24px;font-weight:800;margin-bottom:22px">My Campaigns</h1>’ +
+[[‘Summer Glow Collection’,‘Glossier’,‘Active’,4,’$8,400’,60,’$5,040’],[‘Back to School Tech’,‘Samsung’,‘Review’,3,’$5,200’,35,’$1,820’],[‘Holiday Fitness’,‘Lululemon’,‘Recruiting’,0,’$6,800’,10,’$0’],[‘Spring Food Campaign’,‘HelloFresh’,‘Completed’,6,’$4,200’,100,’$4,200’]].map(function(c) {
+var sb2 = c[2]===‘Active’?’#EDFAF4’:c[2]===‘Completed’?’#EEF0F8’:c[2]===‘Review’?’#FFFBEB’:’#E8F0FF’;
+var sc2 = c[2]===‘Active’?’#00B37E’:c[2]===‘Completed’?’#5C6480’:c[2]===‘Review’?’#F59E0B’:’#0063FF’;
+return ‘<div class="card" style="margin-bottom:12px;padding:18px 22px"><div style="display:flex;align-items:center;justify-content:space-between"><div style="flex:1"><div style="display:flex;align-items:center;gap:10px;margin-bottom:6px"><span style="font-weight:700;font-size:15px">’ + c[0] + ‘</span><span class="bdg" style="background:' + sb2 + ';color:' + sc2 + '">’ + c[2] + ‘</span></div><div style="font-size:12px;color:#5C6480">’ + c[1] + ‘</div><div style="margin-top:8px;background:#EEF0F8;border-radius:4px;height:4px;width:200px"><div style="height:4px;border-radius:4px;background:' + (c[5]===100?'#00B37E':'#0063FF') + ';width:' + c[5] + '%"></div></div></div><div style="display:flex;gap:20px;text-align:right"><div><div style="font-weight:700">’ + c[3] + ‘</div><div style="font-size:11px;color:#5C6480">Creators</div></div><div><div style="font-weight:700">’ + c[4] + ‘</div><div style="font-size:11px;color:#5C6480">Budget</div></div><div><div style="font-weight:700">’ + c[6] + ‘</div><div style="font-size:11px;color:#5C6480">Spent</div></div></div></div></div>’;
+}).join(’’) + ‘</div>’;
+
+if (P === ‘ca’) {
+var crs = [{id:1,name:“Sophie Laurent”,handle:”@sophielaurent”,followers:“142K”,platform:“Instagram”,niche:“Lifestyle & Beauty”,rate:2800,score:96},{id:2,name:“Marcus Chen”,handle:”@marcuschen”,followers:“89K”,platform:“TikTok”,niche:“Tech & Gaming”,rate:1900,score:88},{id:3,name:“Aaliya Owens”,handle:”@aaliyaowens”,followers:“205K”,platform:“YouTube”,niche:“Fitness”,rate:3500,score:92},{id:4,name:“Remi Dubois”,handle:”@remidubois”,followers:“67K”,platform:“Instagram”,niche:“Fashion”,rate:1600,score:84}];
+return ‘<div style="padding:28px"><h1 style="font-size:24px;font-weight:800;margin-bottom:6px">Creator Applications</h1>’ +
+‘<p style="font-size:14px;color:#5C6480;margin-bottom:22px">Summer Glow · 4 applicants</p>’ +
+crs.map(function(cr) {
+var isSel = selC.indexOf(cr.id) >= 0;
+var ini = cr.name.split(’ ‘).map(function(w){return w[0];}).join(’’);
+return ‘<div class="card" style="margin-bottom:12px;padding:16px 20px;border-color:' + (isSel?'#0063FF':'#DDE1EE') + '"><div style="display:flex;align-items:center;gap:14px"><div style="width:44px;height:44px;border-radius:50%;background:#0063FF;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;flex-shrink:0">’ + ini + ‘</div><div style="flex:1"><div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><span style="font-weight:700;font-size:15px">’ + cr.name + ‘</span><span style="font-size:12px;color:#5C6480">’ + cr.handle + ‘</span><span class="bdg" style="background:#FFFBEB;color:#F59E0B">★ ’ + cr.score + ‘</span></div><div style="display:flex;gap:6px;flex-wrap:wrap"><span class="bdg">’ + cr.platform + ‘</span><span class="bdg">’ + cr.followers + ‘</span><span class="bdg">’ + cr.niche + ‘</span></div></div><div style="text-align:right;min-width:100px"><div style="font-weight:800;font-size:16px;color:#0063FF">CAD $’ + cr.rate.toLocaleString() + ‘</div><div style="font-size:11px;color:#5C6480;margin-bottom:8px">requested</div><button class="bsm ' + (isSel?'bg':'bp') + '" onclick="togC(' + cr.id + ')">’ + (isSel?‘Selected’:‘Select’) + ‘</button></div></div></div>’;
+}).join(’’) +
+‘<div style="margin-top:16px;padding:14px 18px;border-radius:10px;background:#EDFAF4;display:flex;justify-content:space-between;align-items:center"><span style="font-weight:600;color:#00B37E">’ + selC.length + ’ creator’ + (selC.length!==1?‘s’:’’) + ’ selected</span><button class="bg" onclick="alert(\'Contracts sent!\')">Send Contracts</button></div></div>’;
+}
+
+if (P === ‘cr’) return ‘<div style="padding:28px"><h1 style="font-size:24px;font-weight:800;margin-bottom:22px">Content Review</h1>’ +
+[{creator:“Sophie Laurent”,type:“Instagram Reel”,status:“Pending Review”,icon:“🎬”},{creator:“Marcus Chen”,type:“TikTok Video”,status:“Approved”,icon:“✅”},{creator:“Aaliya Owens”,type:“YouTube Video”,status:“Revision Requested”,icon:“✏️”},{creator:“Remi Dubois”,type:“3x Stories”,status:“Pending Review”,icon:“📱”}].map(function(c) {
+var bg2 = c.status===“Approved”?”#EDFAF4”:c.status===“Revision Requested”?”#FFFBEB”:”#E8F0FF”;
+var col2 = c.status===“Approved”?”#00B37E”:c.status===“Revision Requested”?”#F59E0B”:”#0063FF”;
+return ‘<div class="card" style="margin-bottom:12px;padding:16px 20px"><div style="display:flex;align-items:center;gap:14px"><div style="width:50px;height:50px;border-radius:10px;background:#EEF0F8;display:flex;align-items:center;justify-content:center;font-size:24px">’ + c.icon + ‘</div><div style="flex:1"><div style="font-weight:700;font-size:14px;margin-bottom:3px">’ + c.type + ‘</div><div style="font-size:12px;color:#5C6480">by ’ + c.creator + ‘</div></div><div style="display:flex;gap:8px;align-items:center"><span class="bdg" style="background:' + bg2 + ';color:' + col2 + '">’ + c.status + ‘</span>’ + (c.status===“Pending Review”?’<button class="bg bsm" onclick="alert(\'Approved!\')">Approve</button>’:’’) + ‘</div></div></div>’;
+}).join(’’) + ‘</div>’;
+
+if (P === ‘py’) return ‘<div style="padding:28px"><h1 style="font-size:24px;font-weight:800;margin-bottom:22px">Payments</h1>’ +
+‘<div class="g3">’ + sb(‘In Escrow’,’$9,900’,‘🔒’,’#F59E0B’) + sb(‘Ready to Release’,’$1,600’,‘✅’,’#00B37E’) + sb(‘Released’,’$4,780’,‘💸’,’#0063FF’) + ‘</div>’ +
+[{creator:“Sophie Laurent”,campaign:“Summer Glow”,amount:”$2,800”,status:“Held in Escrow”},{creator:“Remi Dubois”,campaign:“Summer Glow”,amount:”$1,600”,status:“Ready to Release”},{creator:“Marcus Chen”,campaign:“Back to School”,amount:”$1,900”,status:“Released”},{creator:“Aaliya Owens”,campaign:“Summer Glow”,amount:”$3,500”,status:“Held in Escrow”}].map(function(p2) {
+var ini2 = p2.creator.split(’ ‘).map(function(w){return w[0];}).join(’’);
+var rdy2 = p2.status===‘Ready to Release’||p2.status===‘Released’;
+return ‘<div class="card" style="margin-bottom:10px;padding:14px 20px"><div style="display:flex;align-items:center;justify-content:space-between"><div style="display:flex;align-items:center;gap:10px"><div style="width:36px;height:36px;border-radius:50%;background:#0063FF;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px">’ + ini2 + ‘</div><div><div style="font-weight:600;font-size:14px">’ + p2.creator + ‘</div><div style="font-size:12px;color:#5C6480">’ + p2.campaign + ‘</div></div></div><div style="display:flex;align-items:center;gap:12px"><span style="font-weight:800;font-size:16px;color:#0063FF">’ + p2.amount + ‘</span><span class="bdg" style="background:' + (rdy2?'#EDFAF4':'#FFFBEB') + ';color:' + (rdy2?'#00B37E':'#F59E0B') + '">’ + p2.status + ‘</span>’ + (p2.status===‘Ready to Release’?’<button class="bg bsm" onclick="alert(\'Payment released!\')">Release</button>’:’’) + ‘</div></div></div>’;
+}).join(’’) + ‘</div>’;
+
 return ‘<div style="padding:28px"><h2>Coming soon</h2></div>’;
 }
-function togC(id){var i=S.selC.indexOf(id);if(i>=0)S.selC.splice(i,1);else S.selC.push(id);renderMain();}
-function getCreator(){
-var p=S.page;
-if(p===‘fd’)return ‘<div style="padding:28px"><h1 style="font-size:24px;font-weight:800;margin-bottom:4px">Browse Campaigns</h1><p style="font-size:14px;color:#5C6480;margin-bottom:14px">6 campaigns looking for creators</p><div class="gc">’+
-CAMPS.map(function(c){
-var a=S.applied.indexOf(c.id)>=0;
-return ‘<div class="card" style="padding:18px 20px"><div style="display:flex;gap:12px;margin-bottom:12px"><div style="width:46px;height:46px;border-radius:10px;background:#F8F9FF;border:1px solid #DDE1EE;display:flex;align-items:center;justify-content:center;font-size:22px">’+c.logo+’</div><div><div style="font-weight:700;font-size:15px;margin-bottom:2px">’+c.name+’</div><div style="font-size:12px;color:#5C6480">’+c.brand+’</div></div></div><div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px">’+c.platforms.map(function(pl){return ‘<span class="badge">’+pl+’</span>’;}).join(’’)+’<span class="badge" style="background:#E8F0FF;color:#0063FF">’+c.niche+’</span></div><div style="display:flex;justify-content:space-between;align-items:center;padding-top:10px;border-top:1px solid #EEF0F8"><div><div style="font-weight:800;font-size:15px;color:#0063FF">’+c.budget+’</div><div style="font-size:11px;color:#5C6480">’+c.spots+’ spots</div></div>’+(a?’<span class="badge" style="background:#EDFAF4;color:#00B37E">Applied</span>’:’<button class="btn bp bsm" onclick="applyC('+c.id+');renderMain()">Apply Now</button>’)+’</div></div>’;
-}).join(’’)+’</div></div>’;
-if(p===‘cl’){
-var stages=[“Applied”,“Contract”,“Concept”,“Content”,“Paid”];
-return ‘<div style="padding:28px"><h1 style="font-size:24px;font-weight:800;margin-bottom:22px">My Collaborations</h1>’+
-[{brand:“Glossier”,name:“Summer Glow”,due:“May 15”,earn:”$2,800”,si:2},{brand:“Samsung”,name:“Back to School Tech”,due:“June 10”,earn:”$1,900”,si:1},{brand:“HelloFresh”,name:“Quick Weeknight Meals”,due:“Completed”,earn:”$1,500”,si:4}].map(function(c){
-return ‘<div class="card" style="margin-bottom:14px"><div style="display:flex;justify-content:space-between;margin-bottom:14px"><div><div style="font-weight:700;font-size:15px;margin-bottom:2px">’+c.name+’</div><div style="font-size:12px;color:#5C6480">’+c.brand+’ · Due ‘+c.due+’</div></div><div style="font-weight:800;font-size:16px;color:#0063FF">’+c.earn+’</div></div><div style="display:flex;align-items:center">’+
-stages.map(function(s,si){return ‘<div style="display:flex;align-items:center;flex:1"><div style="display:flex;flex-direction:column;align-items:center;gap:3px"><div style="width:22px;height:22px;border-radius:50%;background:'+(si<=c.si?'#0063FF':'#DDE1EE')+';display:flex;align-items:center;justify-content:center;font-size:10px;color:'+(si<=c.si?'#fff':'#9198B0')+';font-weight:700">’+(si<c.si?‘✓’:si+1)+’</div><span style="font-size:10px;color:'+(si===c.si?'#0063FF':'#9198B0')+';white-space:nowrap">’+s+’</span></div>’+(si<stages.length-1?’<div style="flex:1;height:2px;background:'+(si<c.si?'#0063FF':'#DDE1EE')+';margin:0 2px;margin-top:-14px"></div>’:’’)+’</div>’;}).join(’’)+
+
+function togC(id) {
+var i = selC.indexOf(id);
+if (i >= 0) selC.splice(i, 1); else selC.push(id);
+renderContent();
+}
+
+// ── CREATOR PAGES ─────────────────────────────────────
+function getCreator() {
+if (P === ‘fd’) {
+var html = ‘<div style="padding:28px"><h1 style="font-size:24px;font-weight:800;margin-bottom:4px">Browse Campaigns</h1><p style="font-size:14px;color:#5C6480;margin-bottom:14px">6 campaigns looking for creators</p><div class="gc">’;
+for (var i = 0; i < CAMPS.length; i++) {
+html += campCard(CAMPS[i], applied.indexOf(CAMPS[i].id) >= 0);
+}
+return html + ‘</div></div>’;
+}
+if (P === ‘cl’) {
+var stages = [“Applied”,“Contract”,“Concept”,“Content”,“Paid”];
+return ‘<div style="padding:28px"><h1 style="font-size:24px;font-weight:800;margin-bottom:22px">My Collaborations</h1>’ +
+[{brand:“Glossier”,name:“Summer Glow”,due:“May 15”,earn:”$2,800”,si:2},{brand:“Samsung”,name:“Back to School Tech”,due:“June 10”,earn:”$1,900”,si:1},{brand:“HelloFresh”,name:“Quick Weeknight Meals”,due:“Completed”,earn:”$1,500”,si:4}].map(function(c) {
+return ‘<div class="card" style="margin-bottom:14px"><div style="display:flex;justify-content:space-between;margin-bottom:14px"><div><div style="font-weight:700;font-size:15px;margin-bottom:2px">’ + c.name + ‘</div><div style="font-size:12px;color:#5C6480">’ + c.brand + ’ · Due ’ + c.due + ‘</div></div><div style="font-weight:800;font-size:16px;color:#0063FF">’ + c.earn + ‘</div></div><div style="display:flex;align-items:center">’ +
+stages.map(function(s, si) {
+return ‘<div style="display:flex;align-items:center;flex:1"><div style="display:flex;flex-direction:column;align-items:center;gap:3px"><div style="width:22px;height:22px;border-radius:50%;background:' + (si<=c.si?'#0063FF':'#DDE1EE') + ';display:flex;align-items:center;justify-content:center;font-size:10px;color:' + (si<=c.si?'#fff':'#9198B0') + ';font-weight:700">’ + (si<c.si?‘✓’:si+1) + ‘</div><span style="font-size:10px;color:' + (si===c.si?'#0063FF':'#9198B0') + ';white-space:nowrap">’ + s + ‘</span></div>’ + (si<stages.length-1?’<div style="flex:1;height:2px;background:' + (si<c.si?'#0063FF':'#DDE1EE') + ';margin:0 2px;margin-top:-14px"></div>’:’’) + ‘</div>’;
+}).join(’’) + ‘</div></div>’;
+}).join(’’) + ‘</div>’;
+}
+if (P === ‘er’) return ‘<div style="padding:28px"><h1 style="font-size:24px;font-weight:800;margin-bottom:22px">Earnings</h1><div class="g3">’ + sb(‘Total Earned’,’$14,820’,‘💰’,’#00B37E’) + sb(‘Pending’,’$4,700’,‘⏳’,’#F59E0B’) + sb(‘Avg Per Deal’,’$2,100’,‘📊’,’#0063FF’) + ‘</div><div class="card">’ + [[“HelloFresh”,“Quick Weeknight Meals”,”+$1,500”,“May 6”],[“Glossier”,“Spring Beauty”,”+$2,200”,“Apr 18”],[“Samsung”,“Tech Unboxing”,”+$1,900”,“Mar 30”],[“Indigo”,“Fall Reading”,”+$850”,“Mar 10”]].map(function(t){return ‘<div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid #EEF0F8"><div><div style="font-weight:600;font-size:14px">’ + t[0] + ’ — ’ + t[1] + ‘</div><div style="font-size:12px;color:#5C6480">’ + t[3] + ‘</div></div><div style="font-weight:800;font-size:15px;color:#00B37E">’ + t[2] + ‘</div></div>’;}).join(’’) + ‘</div></div>’;
+if (P === ‘sc’) return ‘<div style="padding:28px;max-width:680px"><h1 style="font-size:24px;font-weight:800;margin-bottom:6px">Submit Content</h1><p style="font-size:14px;color:#5C6480;margin-bottom:22px">Summer Glow · Glossier</p><div class="card"><div style="margin-bottom:16px"><div style="font-size:11px;font-weight:700;color:#5C6480;text-transform:uppercase;margin-bottom:5px">Caption Draft</div><textarea class="inp" rows="4" placeholder="Write your caption. Include required hashtags..."></textarea></div><button class="bp blg" style="width:100%" onclick="alert(\'Content submitted!\')">Submit for Brand Review</button></div></div>’;
+if (P === ‘ag’) return getAgenda();
+return ‘<div style="padding:28px"><h2>Coming soon</h2></div>’;
+}
+
+// ── AGENDA ────────────────────────────────────────────
+function getAgenda() {
+if (agDone) return ‘<div style="padding:60px;text-align:center"><div style="font-size:56px;margin-bottom:20px">✅</div><h2 style="font-size:28px;font-weight:800;margin-bottom:12px">You are in!</h2><p style="font-size:16px;color:#5C6480;line-height:1.7;max-width:380px;margin:0 auto 28px">We will match you with brands and reach out when there is a confirmed paid opportunity.</p><button class="bo" style="margin-top:20px" onclick="agStep=0;agEv=null;agDone=false;renderContent()">Add Another Event</button></div>’;
+if (agStep === 0) return ‘<div style="padding:28px;max-width:600px"><h1 style="font-size:24px;font-weight:800;margin-bottom:4px">Creator Agenda</h1><p style="font-size:14px;color:#5C6480;margin-bottom:28px">Tell us what is happening in your life. We find brands that match your moment.</p><div style="font-size:13px;font-weight:700;color:#0063FF;text-transform:uppercase;margin-bottom:14px">Step 1 — What is happening?</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">’ +
+EVTS.map(function(e){return ‘<div class="card" style="cursor:pointer;text-align:center;padding:18px 14px" onclick="selEv(\'' + e.id + '\',\'' + e.icon + '\',\'' + e.label + '\')"><div style="font-size:28px;margin-bottom:8px">’ + e.icon + ‘</div><div style="font-weight:700;font-size:14px;margin-bottom:3px">’ + e.label + ‘</div><div style="font-size:11px;color:#5C6480">’ + e.sub + ‘</div></div>’;}).join(’’) +
 ‘</div></div>’;
-}).join(’’)+’</div>’;
+return ‘<div style="padding:28px;max-width:600px"><button class="bo bsm" style="margin-bottom:20px" onclick="agStep=0;renderContent()">Back</button><div style="display:flex;align-items:center;gap:10px;margin-bottom:24px;padding:14px 16px;background:#E8F0FF;border-radius:12px"><span style="font-size:28px">’ + (agEv?agEv.icon:’’) + ‘</span><div><div style="font-weight:700;font-size:15px">’ + (agEv?agEv.label:’’) + ‘</div><div style="font-size:12px;color:#5C6480">We will match brands for this moment</div></div></div><div style="display:flex;flex-direction:column;gap:14px"><div><div style="font-size:11px;font-weight:700;color:#5C6480;text-transform:uppercase;margin-bottom:5px">Your Name</div><input id="ag-n" class="inp" placeholder="Amanda Boily"/></div><div><div style="font-size:11px;font-weight:700;color:#5C6480;text-transform:uppercase;margin-bottom:5px">Handle</div><input id="ag-h" class="inp" placeholder="@amandaboily"/></div><div><div style="font-size:11px;font-weight:700;color:#5C6480;text-transform:uppercase;margin-bottom:5px">Followers</div><input id="ag-f" class="inp" placeholder="24 000"/></div><div><div style="font-size:11px;font-weight:700;color:#5C6480;text-transform:uppercase;margin-bottom:5px">Tell us more (optional)</div><textarea id="ag-d" class="inp" rows="3" placeholder="Je cherche un divan et une table..."></textarea></div><button class="bp blg" style="width:100%" onclick="subAg()">Submit — Find My Matches</button></div></div>’;
 }
-if(p===‘er’)return ‘<div style="padding:28px"><h1 style="font-size:24px;font-weight:800;margin-bottom:22px">Earnings</h1><div class="g3">’+statBox(‘Total Earned’,’$14,820’,‘💰’,’#00B37E’)+statBox(‘Pending’,’$4,700’,‘⏳’,’#F59E0B’)+statBox(‘Avg Per Deal’,’$2,100’,‘📊’,’#0063FF’)+’</div><div class="card">’+[[“HelloFresh”,“Quick Weeknight Meals”,”+$1,500”,“May 6”],[“Glossier”,“Spring Beauty”,”+$2,200”,“Apr 18”],[“Samsung”,“Tech Unboxing”,”+$1,900”,“Mar 30”],[“Indigo”,“Fall Reading”,”+$850”,“Mar 10”]].map(function(t){return ‘<div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid #EEF0F8"><div><div style="font-weight:600;font-size:14px">’+t[0]+’ — ‘+t[1]+’</div><div style="font-size:12px;color:#5C6480">’+t[3]+’</div></div><div style="font-weight:800;font-size:15px;color:#00B37E">’+t[2]+’</div></div>’;}).join(’’)+’</div></div>’;
-if(p===‘sc’)return ‘<div style="padding:28px;max-width:680px"><h1 style="font-size:24px;font-weight:800;margin-bottom:6px">Submit Content</h1><p style="font-size:14px;color:#5C6480;margin-bottom:22px">Summer Glow Collection · Glossier</p><div class="card"><div style="margin-bottom:16px"><div class="lbl">Content Type</div><div style="display:flex;gap:8px"><button class="btn bo bsm">Reel</button><button class="btn bo bsm">Story</button><button class="btn bo bsm">Post</button><button class="btn bo bsm">Video</button></div></div><div style="margin-bottom:16px"><div class="lbl">Caption Draft</div><textarea class="inp" rows="4" placeholder="Write your caption. Include required hashtags..."></textarea></div><button class="btn bp blg" style="width:100%" onclick="alert(\'Content submitted!\')">Submit for Brand Review</button></div></div>’;
-if(p===‘ag’)return getAgenda();
-return ‘<div style="padding:28px"><h2>Coming soon</h2></div>’;
+
+function selEv(id, icon, lbl) {
+agEv = {id:id, icon:icon, label:lbl};
+agStep = 1;
+renderContent();
 }
-function getAgenda(){
-if(S.agDone)return ‘<div style="padding:60px;text-align:center"><div style="font-size:56px;margin-bottom:20px">✅</div><h2 style="font-size:28px;font-weight:800;margin-bottom:12px">You are in!</h2><p style="font-size:16px;color:#5C6480;line-height:1.7;max-width:380px;margin:0 auto 28px">We will match you with brands and reach out when there is a confirmed paid opportunity.</p><button class="btn bo" style="margin-top:20px" onclick="S.agStep=0;S.agEv=null;S.agDone=false;renderMain()">Add Another Event</button></div>’;
-if(S.agStep===0)return ‘<div style="padding:28px;max-width:600px"><h1 style="font-size:24px;font-weight:800;margin-bottom:4px">Creator Agenda</h1><p style="font-size:14px;color:#5C6480;margin-bottom:28px">Tell us what is happening in your life. We find brands that match your moment.</p><div style="font-size:13px;font-weight:700;color:#0063FF;text-transform:uppercase;margin-bottom:14px">Step 1 - What is happening?</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">’+EVTS.map(function(e){return ‘<div class="card" style="cursor:pointer;text-align:center;padding:18px 14px" onclick="selEv(\''+e.id+'\',\''+e.icon+'\',\''+e.label+'\')"><div style="font-size:28px;margin-bottom:8px">’+e.icon+’</div><div style="font-weight:700;font-size:14px;margin-bottom:3px">’+e.label+’</div><div style="font-size:11px;color:#5C6480">’+e.sub+’</div></div>’;}).join(’’)+’</div></div>’;
-return ‘<div style="padding:28px;max-width:600px"><button class="btn bo bsm" style="margin-bottom:20px" onclick="S.agStep=0;renderMain()">Back</button><div style="display:flex;align-items:center;gap:10px;margin-bottom:24px;padding:14px 16px;background:#E8F0FF;border-radius:12px"><span style="font-size:28px">’+(S.agEv?S.agEv.icon:’’)+’</span><div><div style="font-weight:700;font-size:15px">’+(S.agEv?S.agEv.label:’’)+’</div><div style="font-size:12px;color:#5C6480">We will match brands for this moment</div></div></div><div style="display:flex;flex-direction:column;gap:14px"><div><div class="lbl">Your Name</div><input id="ag-n" class="inp" placeholder="Amanda Boily"/></div><div><div class="lbl">Handle</div><input id="ag-h" class="inp" placeholder="@amandaboily"/></div><div><div class="lbl">Followers</div><input id="ag-f" class="inp" placeholder="24 000"/></div><div><div class="lbl">City</div><input id="ag-l" class="inp" placeholder="Montreal, QC"/></div><div><div class="lbl">Tell us more (optional)</div><textarea id="ag-d" class="inp" rows="3" placeholder="Je cherche un divan et une table..."></textarea></div><button class="btn bp blg" style="width:100%" onclick="subAg()">Submit - Find My Matches</button></div></div>’;
+
+function subAg() {
+var n = (document.getElementById(‘ag-n’)||{value:’’}).value || ‘Anonymous’;
+var h = (document.getElementById(‘ag-h’)||{value:’’}).value || ‘@unknown’;
+var f = (document.getElementById(‘ag-f’)||{value:’’}).value || ‘0’;
+var d = (document.getElementById(‘ag-d’)||{value:’’}).value || ‘’;
+subs.unshift({id:Date.now(),name:n,handle:h,followers:f,platform:‘Instagram’,event:agEv?agEv.id:‘Unknown’,detail:d,location:’’,at:‘Just now’,status:‘new’});
+selSub = subs[0];
+agDone = true;
+renderContent();
 }
-function selEv(id,icon,lbl){S.agEv={id:id,icon:icon,label:lbl};S.agStep=1;renderMain();}
-function subAg(){
-var n=(document.getElementById(‘ag-n’)||{value:’’}).value||‘Anonymous’;
-var h=(document.getElementById(‘ag-h’)||{value:’’}).value||’@unknown’;
-var f=(document.getElementById(‘ag-f’)||{value:’’}).value||‘0’;
-var l=(document.getElementById(‘ag-l’)||{value:’’}).value||’’;
-var d=(document.getElementById(‘ag-d’)||{value:’’}).value||’’;
-S.subs.unshift({id:Date.now(),name:n,handle:h,followers:f,platform:‘Instagram’,event:S.agEv?S.agEv.id:‘Unknown’,detail:d,location:l,at:‘Just now’,status:‘new’});
-S.selSub=S.subs[0];S.agDone=true;renderMain();
-}
-function getCapital(){
-var p=S.page;
-if(p===‘ov’)return ‘<div style="padding:28px"><h1 style="font-size:26px;font-weight:800;margin-bottom:6px">Colaboard Capital</h1><p style="font-size:14px;color:#5C6480;margin-bottom:22px">Get paid faster. Do not wait 30-90 days for brands.</p><div class="g2" style="margin-bottom:24px"><div style="background:linear-gradient(135deg,#0063FF,#0052D4);border-radius:16px;padding:28px;color:#fff"><div style="font-size:32px;margin-bottom:10px">⚡</div><div style="font-size:20px;font-weight:800;margin-bottom:6px">Speed Pay</div><div style="font-size:14px;opacity:.85;margin-bottom:16px;line-height:1.6">Approved on a campaign? Get paid in 72 hours. 15% fee.</div><button class="btn bsm" style="background:rgba(255,255,255,.2);color:#fff;border:1px solid rgba(255,255,255,.3)" onclick="goPage(\'sp\')">Try Speed Pay</button></div><div style="background:linear-gradient(135deg,#1A2038,#0A0A2E);border-radius:16px;padding:28px;color:#fff"><div style="font-size:32px;margin-bottom:10px">🧾</div><div style="font-size:20px;font-weight:800;margin-bottom:6px">Invoice Factoring</div><div style="font-size:14px;opacity:.85;margin-bottom:16px;line-height:1.6">Upload an invoice, get paid in 72h. 8% fee.</div><button class="btn bsm" style="background:rgba(255,255,255,.2);color:#fff;border:1px solid rgba(255,255,255,.3)" onclick="goPage(\'if\')">Try Factoring</button></div></div><div class="g3">’+statBox(‘Total Advanced’,’$47.2K’,‘💸’,’#7C3AED’)+statBox(‘Creators Served’,‘186’,‘👥’,’#0063FF’)+statBox(‘Avg Payout’,‘38h’,‘⚡’,’#00B37E’)+’</div></div>’;
-if(p===‘sp’){
-var pds=[{id:1,brand:“Glossier”,campaign:“Summer Glow”,amount:2800,due:“June 15”},{id:2,brand:“Samsung”,campaign:“Back to School”,amount:1900,due:“July 1”},{id:3,brand:“Lululemon”,campaign:“Holiday Fitness”,amount:3500,due:“July 30”}];
-var sel=S.spSel;var fee=sel?Math.round(sel.amount*.15):0;var net=sel?sel.amount-fee:0;
-return ‘<div style="padding:28px;max-width:680px"><h1 style="font-size:24px;font-weight:800;margin-bottom:4px">⚡ Speed Pay</h1><p style="font-size:14px;color:#5C6480;margin-bottom:24px">Select a pending payment to accelerate.</p>’+
-pds.map(function(px){var isSel=sel&&sel.id===px.id;return ‘<div onclick="S.spSel={id:'+px.id+',amount:'+px.amount+',brand:\''+px.brand+'\'};renderMain()" style="cursor:pointer;border-radius:12px;border:2px solid '+(isSel?'#0063FF':'#DDE1EE')+';padding:14px 18px;background:'+(isSel?'#E8F0FF':'#fff')+';margin-bottom:10px"><div style="display:flex;justify-content:space-between;align-items:center"><div><div style="font-weight:700;font-size:15px">’+px.brand+’</div><div style="font-size:12px;color:#5C6480">’+px.campaign+’ · Due ‘+px.due+’</div></div><div style="font-weight:800;font-size:18px;color:#0063FF">CAD $’+px.amount.toLocaleString()+’</div></div></div>’;}).join(’’)+
-(sel?’<div class="card" style="border-color:#0063FF;background:#E8F0FF;margin-top:10px"><h3 style="font-size:16px;font-weight:700;margin-bottom:14px">Speed Pay Summary</h3>’+[[“Original Amount”,“CAD $”+sel.amount.toLocaleString()],[“Fee (15%)”,”- CAD $”+fee.toLocaleString()],[“You Receive”,“CAD $”+net.toLocaleString()],[“Payout”,“Within 72 hours”]].map(function(r,i){return ‘<div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:'+(i<3?'1px solid #DDE1EE':'none')+'"><span style="font-size:13px;color:#5C6480">’+r[0]+’</span><span style="font-size:13px;font-weight:'+(i===2?800:600)+';color:'+(i===2?'#00B37E':'#0A0A0A')+'">’+r[1]+’</span></div>’;}).join(’’)+’<button class="btn bp blg" style="width:100%;margin-top:16px" onclick="alert(\'Speed Pay activated! CAD $'+net.toLocaleString()+' arrives within 72 hours.\')">Confirm Speed Pay - CAD $’+net.toLocaleString()+’</button></div>’:’’)+
+
+// ── CAPITAL ───────────────────────────────────────────
+function getCapital() {
+if (P === ‘ov’) return ‘<div style="padding:28px"><h1 style="font-size:26px;font-weight:800;margin-bottom:6px">Colaboard Capital</h1><p style="font-size:14px;color:#5C6480;margin-bottom:22px">Get paid faster. Do not wait 30-90 days for brands.</p><div class="g2" style="margin-bottom:24px"><div style="background:linear-gradient(135deg,#0063FF,#0052D4);border-radius:16px;padding:28px;color:#fff"><div style="font-size:32px;margin-bottom:10px">⚡</div><div style="font-size:20px;font-weight:800;margin-bottom:6px">Speed Pay</div><div style="font-size:14px;opacity:.85;margin-bottom:16px;line-height:1.6">Approved on a campaign? Get paid in 72 hours. 15% fee.</div><button class="bsm" style="background:rgba(255,255,255,.2);color:#fff;border:1px solid rgba(255,255,255,.3);border-radius:8px;padding:6px 13px;font-size:12px;font-weight:600" onclick="goPage(\'sp\')">Try Speed Pay</button></div><div style="background:linear-gradient(135deg,#1A2038,#0A0A2E);border-radius:16px;padding:28px;color:#fff"><div style="font-size:32px;margin-bottom:10px">🧾</div><div style="font-size:20px;font-weight:800;margin-bottom:6px">Invoice Factoring</div><div style="font-size:14px;opacity:.85;margin-bottom:16px;line-height:1.6">Upload an invoice, get paid in 72h. 8% fee.</div><button class="bsm" style="background:rgba(255,255,255,.2);color:#fff;border:1px solid rgba(255,255,255,.3);border-radius:8px;padding:6px 13px;font-size:12px;font-weight:600" onclick="goPage(\'if\')">Try Factoring</button></div></div><div class="g3">’ + sb(‘Total Advanced’,’$47.2K’,‘💸’,’#7C3AED’) + sb(‘Creators Served’,‘186’,‘👥’,’#0063FF’) + sb(‘Avg Payout’,‘38h’,‘⚡’,’#00B37E’) + ‘</div></div>’;
+
+if (P === ‘sp’) {
+var pds = [{id:1,brand:“Glossier”,campaign:“Summer Glow”,amount:2800,due:“June 15”},{id:2,brand:“Samsung”,campaign:“Back to School”,amount:1900,due:“July 1”},{id:3,brand:“Lululemon”,campaign:“Holiday Fitness”,amount:3500,due:“July 30”}];
+var fee2 = spSel ? Math.round(spSel.amount*.15) : 0;
+var net2 = spSel ? spSel.amount - fee2 : 0;
+return ‘<div style="padding:28px;max-width:680px"><h1 style="font-size:24px;font-weight:800;margin-bottom:4px">⚡ Speed Pay</h1><p style="font-size:14px;color:#5C6480;margin-bottom:24px">Select a pending payment to accelerate.</p>’ +
+pds.map(function(px) {
+var isSel2 = spSel && spSel.id === px.id;
+return ‘<div style="cursor:pointer;border-radius:12px;border:2px solid ' + (isSel2?'#0063FF':'#DDE1EE') + ';padding:14px 18px;background:' + (isSel2?'#E8F0FF':'#fff') + ';margin-bottom:10px" onclick="spSel={id:' + px.id + ',amount:' + px.amount + ',brand:\'' + px.brand + '\'};renderContent()"><div style="display:flex;justify-content:space-between;align-items:center"><div><div style="font-weight:700;font-size:15px">’ + px.brand + ‘</div><div style="font-size:12px;color:#5C6480">’ + px.campaign + ’ · Due ’ + px.due + ‘</div></div><div style="font-weight:800;font-size:18px;color:#0063FF">CAD $’ + px.amount.toLocaleString() + ‘</div></div></div>’;
+}).join(’’) +
+(spSel ? ‘<div class="card" style="border-color:#0063FF;background:#E8F0FF;margin-top:10px"><h3 style="font-size:16px;font-weight:700;margin-bottom:14px">Speed Pay Summary</h3>’ +
+[[“Original Amount”,“CAD $” + spSel.amount.toLocaleString()],[“Fee (15%)”,”- CAD $” + fee2.toLocaleString()],[“You Receive”,“CAD $” + net2.toLocaleString()],[“Payout”,“Within 72 hours”]].map(function(r,i2){return ‘<div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:' + (i2<3?'1px solid #DDE1EE':'none') + '"><span style="font-size:13px;color:#5C6480">’ + r[0] + ‘</span><span style="font-size:13px;font-weight:' + (i2===2?800:600) + ';color:' + (i2===2?'#00B37E':'#0A0A0A') + '">’ + r[1] + ‘</span></div>’;}).join(’’) +
+‘<button class="bp blg" style="width:100%;margin-top:16px" onclick="alert(\'Speed Pay activated! CAD $' + net2.toLocaleString() + ' arrives within 72 hours.\')">Confirm Speed Pay - CAD $’ + net2.toLocaleString() + ‘</button></div>’ : ‘’) +
 ‘</div>’;
 }
-if(p===‘if’)return ‘<div style="padding:28px;max-width:680px"><h1 style="font-size:24px;font-weight:800;margin-bottom:4px">🧾 Invoice Factoring</h1><p style="font-size:14px;color:#5C6480;margin-bottom:24px">Get paid on outstanding invoices within 72 hours. 8% fee.</p><div class="card"><div style="margin-bottom:16px"><div class="lbl">Brand Name</div><input class="inp" placeholder="e.g. HelloFresh Canada"/></div><div style="margin-bottom:16px"><div class="lbl">Invoice Amount (CAD)</div><input id="ia" class="inp" type="number" placeholder="e.g. 2500" oninput="calcInv()"/></div><div id="is"></div><button class="btn bdk blg" style="width:100%;margin-top:4px" onclick="alert(\'Invoice submitted! Payment within 72 hours.\')">Submit Invoice for Factoring</button></div></div>’;
+
+if (P === ‘if’) return ‘<div style="padding:28px;max-width:680px"><h1 style="font-size:24px;font-weight:800;margin-bottom:4px">🧾 Invoice Factoring</h1><p style="font-size:14px;color:#5C6480;margin-bottom:24px">Get paid on outstanding invoices within 72 hours. 8% fee.</p><div class="card"><div style="margin-bottom:16px"><div style="font-size:11px;font-weight:700;color:#5C6480;text-transform:uppercase;margin-bottom:5px">Brand Name</div><input class="inp" placeholder="e.g. HelloFresh Canada"/></div><div style="margin-bottom:16px"><div style="font-size:11px;font-weight:700;color:#5C6480;text-transform:uppercase;margin-bottom:5px">Invoice Amount (CAD)</div><input id="ia" class="inp" type="number" placeholder="e.g. 2500" oninput="calcInv()"/></div><div id="is"></div><button class="bdk blg" style="width:100%;margin-top:4px;border:none;border-radius:12px" onclick="alert(\'Invoice submitted! Payment within 72 hours.\')">Submit Invoice for Factoring</button></div></div>’;
+
 return ‘<div style="padding:28px"><h2>Coming soon</h2></div>’;
 }
-function calcInv(){var a=parseFloat((document.getElementById(‘ia’)||{value:’’}).value)||0;var s=document.getElementById(‘is’);if(!s)return;if(a>0){var fee=Math.round(a*.08);var net=a-fee;s.innerHTML=’<div style="background:#F8F9FF;border-radius:10px;padding:14px 16px;margin-bottom:16px">’+[[“Invoice Amount”,“CAD $”+a.toLocaleString()],[“Fee (8%)”,”- CAD $”+fee.toLocaleString()],[“You Receive”,“CAD $”+net.toLocaleString()]].map(function(r,i){return ‘<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:'+(i<2?'1px solid #DDE1EE':'none')+'"><span style="font-size:13px;color:#5C6480">’+r[0]+’</span><span style="font-size:13px;font-weight:'+(i===2?800:600)+';color:'+(i===2?'#00B37E':'#0A0A0A')+'">’+r[1]+’</span></div>’;}).join(’’)+’</div>’;}else s.innerHTML=’’;}
-function makePitch(cr,br){return’Bonjour ‘+br.brand+’ Team,\n\nJacques Eastwood, fondateur de Colaboard.\n\nOpportunite avec ‘+cr.name+’ (’+cr.handle+’), ‘+cr.platform+’ · ‘+cr.followers+’ followers’+(cr.location?’ · ‘+cr.location:’’)+’.\n\nEVENEMENT : ‘+cr.event+(cr.detail?’\n”’+cr.detail+’”’:’’)+’\n\nBUDGET SUGGERE : ‘+br.value+’ CAD\nPaiement securise via Colaboard.\n\nDisponible cette semaine?\n\nJacques Eastwood\ncolaboard.com | hello@colaboard.com’;}
-function getAdmin(){
-var ST={new:{bg:’#E8F0FF’,c:’#0063FF’,l:‘New’},pitched:{bg:’#FFFBEB’,c:’#F59E0B’,l:‘Pitched’},deal:{bg:’#EDFAF4’,c:’#00B37E’,l:‘Deal’}};
-var s=S.selSub;var brands=s?(BRANDS[s.event]||[]):[];
-var ev=s?EVTS.filter(function(e){return e.id===s.event;})[0]:null;
-return ‘<div style="display:flex;height:calc(100vh - 64px)">’+
-‘<div style="width:270px;background:#111118;border-right:1px solid #1E1E2E;padding:12px 10px;overflow-y:auto;flex-shrink:0">’+
-‘<div style="font-size:11px;font-weight:700;color:#8B8FA8;text-transform:uppercase;padding:6px 10px 12px">’+S.subs.length+’ Submissions</div>’+
-S.subs.map(function(sub){
-var st=ST[sub.status]||ST.new;
-var ico=(EVTS.filter(function(e){return e.id===sub.event;})[0]||{}).icon||‘📌’;
-var act=s&&s.id===sub.id;
-return ‘<div onclick="S.selSub=S.subs.filter(function(x){return x.id==='+sub.id+';})[0];renderMain()" style="padding:12px;border-radius:10px;cursor:pointer;margin-bottom:4px;background:'+(act?'rgba(0,99,255,.12)':'transparent')+';border:1px solid '+(act?'rgba(0,99,255,.3)':'transparent')+'"><div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px"><div style="font-weight:700;font-size:13px;color:#fff">’+sub.name+’</div><span style="font-size:10px;font-weight:700;padding:2px 7px;border-radius:6px;background:'+st.bg+';color:'+st.c+'">’+st.l+’</span></div><div style="font-size:12px;color:#0063FF;margin-bottom:2px">’+sub.handle+’</div><div style="font-size:11px;color:#8B8FA8">’+ico+’ ‘+sub.event+’</div><div style="font-size:11px;color:#8B8FA8;margin-top:2px">’+sub.at+’</div></div>’;
-}).join(’’)+’</div>’+
-(s?’<div style="flex:1;padding:24px 28px;overflow-y:auto;background:#0A0A0F">’+
-‘<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;flex-wrap:wrap;gap:12px"><div><h2 style="font-size:22px;font-weight:800;color:#fff;margin-bottom:4px">’+s.name+’</h2><div style="font-size:13px;color:#8B8FA8">’+s.handle+’ · ‘+s.followers+’ · ‘+s.platform+(s.location?’ · ‘+s.location:’’)+’</div></div>’+
-‘<div style="display:flex;gap:6px">’+[‘new’,‘pitched’,‘deal’].map(function(st){var stl=ST[st];var act=s.status===st;return ‘<button onclick="S.selSub.status=\''+st+'\';renderMain()" style="padding:6px 14px;border-radius:8px;border:1.5px solid '+(act?stl.c:'#1E1E2E')+';background:'+(act?stl.bg:'transparent')+';color:'+(act?stl.c:'#8B8FA8')+';font-weight:600;font-size:12px;cursor:pointer">’+stl.l+’</button>’;}).join(’’)+’</div></div>’+
-‘<div style="background:#111118;border-radius:12px;border:1px solid #1E1E2E;padding:16px 20px;margin-bottom:20px"><div style="display:flex;align-items:center;gap:10px'+(s.detail?';margin-bottom:10px':'')+'"><span style="font-size:24px">’+(ev?ev.icon:‘📌’)+’</span><div><div style="font-weight:700;color:#fff;font-size:15px">’+s.event+’</div><div style="font-size:12px;color:#8B8FA8">’+s.at+’</div></div></div>’+(s.detail?’<div style="padding-top:10px;border-top:1px solid #1E1E2E"><div style="font-size:11px;font-weight:700;color:#8B8FA8;text-transform:uppercase;margin-bottom:4px">Creator note</div><div style="font-size:14px;color:#E8E9F0;font-style:italic">”’+s.detail+’”</div></div>’:’’)+’</div>’+
-‘<div style="font-size:12px;font-weight:700;color:#8B8FA8;text-transform:uppercase;margin-bottom:12px">’+brands.length+’ Brand Matches</div>’+
-brands.map(function(b,i){
-return ‘<div style="margin-bottom:10px"><div style="background:#111118;border-radius:12px;border:1px solid #1E1E2E;padding:16px 20px;cursor:pointer" onclick="var p=document.getElementById(\'pp'+i+'\');if(p){var h=p.classList.contains(\'hidden\');p.classList.toggle(\'hidden\');if(h){var pr=document.getElementById(\'pt'+i+'\');if(pr)pr.textContent=makePitch(S.selSub,'+JSON.stringify(b)+');var el=document.getElementById(\'el'+i+'\');if(el)el.href=\'mailto:'+b.email+'?subject=Opportunite&body=\'+encodeURIComponent(makePitch(S.selSub,'+JSON.stringify(b)+'));}}" ><div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px"><div style="flex:1"><div style="font-weight:700;font-size:15px;color:#fff;margin-bottom:4px">’+b.brand+’</div><div style="font-size:13px;color:#8B8FA8;line-height:1.5">’+b.why+’</div><div style="font-size:11px;color:#8B8FA8;margin-top:8px">📧 ‘+b.email+’ · <span style="color:#0063FF;font-weight:600">Generate pitch</span></div></div><div style="text-align:right;flex-shrink:0"><div style="font-weight:800;font-size:15px;color:#00C896">’+b.value+’</div><div style="font-size:11px;color:#8B8FA8">CAD</div></div></div></div>’+
-‘<div id="pp'+i+'" class="hidden" style="background:#0A0F1A;border:1px solid rgba(0,99,255,.2);border-top:none;border-radius:0 0 12px 12px;padding:20px"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;flex-wrap:wrap;gap:8px"><div style="font-size:12px;font-weight:700;color:#0063FF;text-transform:uppercase">Pitch — ‘+b.brand+’</div><div style="display:flex;gap:8px"><button id="cb'+i+'" onclick="var p=document.getElementById(\'pt'+i+'\');if(p){navigator.clipboard.writeText(p.textContent).then(function(){var b=document.getElementById(\'cb'+i+'\');b.textContent=\'Copied!\';setTimeout(function(){b.textContent=\'Copy Pitch\';},2000);}).catch(function(){});}" style="padding:7px 14px;border-radius:8px;background:rgba(0,99,255,.15);border:1px solid rgba(0,99,255,.3);color:#0063FF;font-weight:700;font-size:12px;cursor:pointer">Copy Pitch</button><a id="el'+i+'" href="#" style="padding:7px 14px;border-radius:8px;background:rgba(0,99,255,.15);border:1px solid rgba(0,99,255,.3);color:#0063FF;font-weight:700;font-size:12px">Open in Email</a></div></div><pre id="pt'+i+'" style="font-size:12px;color:#8B8FA8;line-height:1.7;white-space:pre-wrap;font-family:monospace;background:#111118;border-radius:8px;padding:16px;border:1px solid #1E1E2E;max-height:280px;overflow-y:auto"></pre></div></div>’;
-}).join(’’)+
-‘</div>’:’<div style="padding:28px;color:#8B8FA8">Select a submission</div>’)+
+
+function calcInv() {
+var a = parseFloat((document.getElementById(‘ia’)||{value:’’}).value) || 0;
+var s = document.getElementById(‘is’);
+if (!s) return;
+if (a > 0) {
+var fee3 = Math.round(a*.08);
+var net3 = a - fee3;
+s.innerHTML = ‘<div style="background:#F8F9FF;border-radius:10px;padding:14px 16px;margin-bottom:16px">’ +
+[[“Invoice Amount”,“CAD $”+a.toLocaleString()],[“Fee (8%)”,”- CAD $”+fee3.toLocaleString()],[“You Receive”,“CAD $”+net3.toLocaleString()]].map(function(r,i2){
+return ‘<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:' + (i2<2?'1px solid #DDE1EE':'none') + '"><span style="font-size:13px;color:#5C6480">’ + r[0] + ‘</span><span style="font-size:13px;font-weight:' + (i2===2?800:600) + ';color:' + (i2===2?'#00B37E':'#0A0A0A') + '">’ + r[1] + ‘</span></div>’;
+}).join(’’) + ‘</div>’;
+} else { s.innerHTML = ‘’; }
+}
+
+// ── ADMIN ─────────────────────────────────────────────
+function makePitch(cr, br) {
+return ‘Bonjour ’ + br.brand + ’ Team,\n\nJacques Eastwood, fondateur de Colaboard.\n\nOpportunite avec ’ + cr.name + ’ (’ + cr.handle + ‘), ’ + cr.platform + ’ · ’ + cr.followers + ’ followers’ + (cr.location?’ · ‘+cr.location:’’) + ‘.\n\nEVENEMENT : ’ + cr.event + (cr.detail?’\n”’+cr.detail+’”’:’’) + ‘\n\nBUDGET SUGGERE : ’ + br.value + ’ CAD\nPaiement securise via Colaboard.\n\nDisponible cette semaine?\n\nJacques Eastwood\ncolaboard.com | hello@colaboard.com’;
+}
+
+function togglePitch(i) {
+var panel = document.getElementById(‘pp-’ + i);
+if (!panel) return;
+var wasHidden = panel.style.display === ‘none’;
+panel.style.display = wasHidden ? ‘block’ : ‘none’;
+if (wasHidden && selSub) {
+var brands = BRANDS[selSub.event] || [];
+var br = brands[i];
+if (br) {
+var pre = document.getElementById(‘pt-’ + i);
+if (pre) pre.textContent = makePitch(selSub, br);
+var el = document.getElementById(‘el-’ + i);
+if (el) el.href = ‘mailto:’ + br.email + ’?subject=Opportunite createur - ’ + selSub.name + ‘&body=’ + encodeURIComponent(makePitch(selSub, br));
+}
+}
+}
+
+function copyPitch(i) {
+var pre = document.getElementById(‘pt-’ + i);
+var btn = document.getElementById(‘cb-’ + i);
+if (!pre || !btn) return;
+navigator.clipboard.writeText(pre.textContent).then(function() {
+btn.textContent = ‘Copied!’;
+setTimeout(function(){ btn.textContent = ‘Copy Pitch’; }, 2000);
+}).catch(function(){
+btn.textContent = ‘Copied!’;
+setTimeout(function(){ btn.textContent = ‘Copy Pitch’; }, 2000);
+});
+}
+
+function setSubStatus(status) {
+if (selSub) { selSub.status = status; renderContent(); }
+}
+
+function selectSub(id) {
+for (var i = 0; i < subs.length; i++) {
+if (subs[i].id === id) { selSub = subs[i]; break; }
+}
+renderContent();
+}
+
+function getAdmin() {
+var ST = {new:{bg:’#E8F0FF’,c:’#0063FF’,l:‘New’},pitched:{bg:’#FFFBEB’,c:’#F59E0B’,l:‘Pitched’},deal:{bg:’#EDFAF4’,c:’#00B37E’,l:‘Deal’}};
+var brands = selSub ? (BRANDS[selSub.event] || []) : [];
+var ev = selSub ? EVTS.filter(function(e){ return e.id === selSub.event; })[0] : null;
+
+var listHTML = ‘’;
+for (var i = 0; i < subs.length; i++) {
+var sub = subs[i];
+var st = ST[sub.status] || ST.new;
+var ico = (EVTS.filter(function(e){ return e.id === sub.event; })[0] || {}).icon || ‘📌’;
+var act = selSub && selSub.id === sub.id;
+listHTML += ‘<div onclick="selectSub(' + sub.id + ')" style="padding:12px;border-radius:10px;cursor:pointer;margin-bottom:4px;background:' + (act?'rgba(0,99,255,.12)':'transparent') + ';border:1px solid ' + (act?'rgba(0,99,255,.3)':'transparent') + '">’ +
+‘<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px"><div style="font-weight:700;font-size:13px;color:#fff">’ + sub.name + ‘</div><span style="font-size:10px;font-weight:700;padding:2px 7px;border-radius:6px;background:' + st.bg + ';color:' + st.c + '">’ + st.l + ‘</span></div>’ +
+‘<div style="font-size:12px;color:#0063FF;margin-bottom:2px">’ + sub.handle + ‘</div>’ +
+‘<div style="font-size:11px;color:#8B8FA8">’ + ico + ’ ’ + sub.event + ‘</div>’ +
+‘<div style="font-size:11px;color:#8B8FA8;margin-top:2px">’ + sub.at + ‘</div></div>’;
+}
+
+var detailHTML = ‘’;
+if (selSub) {
+var st2 = ST[selSub.status] || ST.new;
+detailHTML = ‘<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;flex-wrap:wrap;gap:12px">’ +
+‘<div><h2 style="font-size:22px;font-weight:800;color:#fff;margin-bottom:4px">’ + selSub.name + ‘</h2><div style="font-size:13px;color:#8B8FA8">’ + selSub.handle + ’ · ’ + selSub.followers + ’ · ’ + selSub.platform + (selSub.location?’ · ‘+selSub.location:’’) + ‘</div></div>’ +
+‘<div style="display:flex;gap:6px">’ +
+[‘new’,‘pitched’,‘deal’].map(function(st3){var stl=ST[st3];var act3=selSub.status===st3;return ‘<button onclick="setSubStatus(\'' + st3 + '\')" style="padding:6px 14px;border-radius:8px;border:1.5px solid ' + (act3?stl.c:'#1E1E2E') + ';background:' + (act3?stl.bg:'transparent') + ';color:' + (act3?stl.c:'#8B8FA8') + ';font-weight:600;font-size:12px;cursor:pointer">’ + stl.l + ‘</button>’;}).join(’’) +
+‘</div></div>’ +
+‘<div style="background:#111118;border-radius:12px;border:1px solid #1E1E2E;padding:16px 20px;margin-bottom:20px">’ +
+‘<div style="display:flex;align-items:center;gap:10px' + (selSub.detail?';margin-bottom:10px':'') + '"><span style="font-size:24px">’ + (ev?ev.icon:‘📌’) + ‘</span><div><div style="font-weight:700;color:#fff;font-size:15px">’ + selSub.event + ‘</div><div style="font-size:12px;color:#8B8FA8">’ + selSub.at + ‘</div></div></div>’ +
+(selSub.detail?’<div style="padding-top:10px;border-top:1px solid #1E1E2E"><div style="font-size:11px;font-weight:700;color:#8B8FA8;text-transform:uppercase;margin-bottom:4px">Creator note</div><div style="font-size:14px;color:#E8E9F0;font-style:italic">”’ + selSub.detail + ‘”</div></div>’:’’) +
+‘</div>’ +
+‘<div style="font-size:12px;font-weight:700;color:#8B8FA8;text-transform:uppercase;margin-bottom:12px">’ + brands.length + ’ Brand Matches — click to generate pitch</div>’;
+
+```
+for (var j = 0; j < brands.length; j++) {
+  var br2 = brands[j];
+  detailHTML += '<div style="margin-bottom:10px">' +
+    '<div style="background:#111118;border-radius:12px;border:1px solid #1E1E2E;padding:16px 20px;cursor:pointer" onclick="togglePitch(' + j + ')">' +
+    '<div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px">' +
+    '<div style="flex:1"><div style="font-weight:700;font-size:15px;color:#fff;margin-bottom:4px">' + br2.brand + '</div><div style="font-size:13px;color:#8B8FA8;line-height:1.5">' + br2.why + '</div><div style="font-size:11px;color:#8B8FA8;margin-top:8px">📧 ' + br2.email + ' · <span style="color:#0063FF;font-weight:600">Generate pitch</span></div></div>' +
+    '<div style="text-align:right;flex-shrink:0"><div style="font-weight:800;font-size:15px;color:#00C896">' + br2.value + '</div><div style="font-size:11px;color:#8B8FA8">CAD</div></div></div></div>' +
+    '<div id="pp-' + j + '" style="display:none;background:#0A0F1A;border:1px solid rgba(0,99,255,.2);border-top:none;border-radius:0 0 12px 12px;padding:20px">' +
+    '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;flex-wrap:wrap;gap:8px">' +
+    '<div style="font-size:12px;font-weight:700;color:#0063FF;text-transform:uppercase">Pitch — ' + br2.brand + '</div>' +
+    '<div style="display:flex;gap:8px">' +
+    '<button id="cb-' + j + '" onclick="copyPitch(' + j + ')" style="padding:7px 14px;border-radius:8px;background:rgba(0,99,255,.15);border:1px solid rgba(0,99,255,.3);color:#0063FF;font-weight:700;font-size:12px;cursor:pointer">Copy Pitch</button>' +
+    '<a id="el-' + j + '" href="#" style="padding:7px 14px;border-radius:8px;background:rgba(0,99,255,.15);border:1px solid rgba(0,99,255,.3);color:#0063FF;font-weight:700;font-size:12px;text-decoration:none">Open in Email</a>' +
+    '</div></div>' +
+    '<pre id="pt-' + j + '" style="font-size:12px;color:#8B8FA8;line-height:1.7;white-space:pre-wrap;font-family:monospace;background:#111118;border-radius:8px;padding:16px;border:1px solid #1E1E2E;max-height:280px;overflow-y:auto"></pre>' +
+    '</div></div>';
+}
+```
+
+}
+
+return ‘<div style="display:flex;height:calc(100vh - 64px)">’ +
+‘<div style="width:270px;background:#111118;border-right:1px solid #1E1E2E;padding:12px 10px;overflow-y:auto;flex-shrink:0">’ +
+‘<div style="font-size:11px;font-weight:700;color:#8B8FA8;text-transform:uppercase;padding:6px 10px 12px">’ + subs.length + ’ Submissions</div>’ +
+listHTML + ‘</div>’ +
+(selSub ? ‘<div style="flex:1;padding:24px 28px;overflow-y:auto;background:#0A0A0F">’ + detailHTML + ‘</div>’ : ‘<div style="padding:28px;color:#8B8FA8">Select a submission</div>’) +
 ‘</div>’;
 }
+
+// ── INIT ──────────────────────────────────────────────
 renderCG(CAMPS);
 switchView(‘brand’);
 </script>
